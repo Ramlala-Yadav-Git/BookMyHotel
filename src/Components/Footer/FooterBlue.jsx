@@ -68,7 +68,7 @@ const FooterBlue = () => {
         </div>
         <input type="checkbox" id="c1" />
         <label style={label} forhtml="c1">
-          Send me a link to get the FREE Booking.com app!
+          Send me a link to get the FREE Bookmyhotel.com app!
         </label>
       </div>
       <div
@@ -105,7 +105,7 @@ const FooterBlue = () => {
           <a href="/" style={link}>Make changes online to your booking</a>
           <a href="/" style={link}>Contact Customer Service</a>
           <a href="/" style={link}>Become an affiliate</a>
-          <a href="/" style={link}>Booking.com for Business</a>
+          <a href="/" style={link}>Bookmyhotel.com for Business</a>
         </div>
       </div>
       <FooterWhite />
