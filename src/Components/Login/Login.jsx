@@ -41,7 +41,7 @@ const Login = () => {
             height="24"
           >
 
-            <title>Bookmyhotel.com</title>
+            <title>BookMyHotel.com</title>
 
             <g fill="none">
               <path
@@ -145,7 +145,7 @@ const Login = () => {
       </div>
       <div className={styles.line1}>
         <p className={styles.p1}>All rights reserved.</p>
-        <p className={styles.p1}>Copyright (2006-2021) – Bookmyhotel.com™</p>
+        <p className={styles.p1}>Copyright (2006-2021) – BookMyHotel.com™</p>
       </div>
 
 

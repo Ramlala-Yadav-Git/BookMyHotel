@@ -1,24 +1,24 @@
-# Bookmyhotel.com
+# BookMyHotel.com
 
 ![Logo](https://cf.bstatic.com/static/img/bcom_logo_blue_bg/f12f834e849b2a7f752a14b2598a6ddfeda1e713.svg)
 
-Bookmyhotel.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of Booking Holdings Inc. (NASDAQ: BKNG), Bookmyhotel.com’s mission is to make it easier for everyone to experience the world.
+BookMyHotel.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of Booking Holdings Inc. (NASDAQ: BKNG), BookMyHotel.com’s mission is to make it easier for everyone to experience the world.
 
 <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="25px">Visit our live website
 https://booking-com.netlify.app
 
 ## Installation
 
-Bookmyhotel.com requires [Node.js](https://nodejs.org/) to run.
+BookMyHotel.com requires [Node.js](https://nodejs.org/) to run.
 
 Download the project.
-[Download Here](https://github.com/Ramlala-Yadav-Git/Bookmyhotel.com-clone/archive/refs/heads/main.zip)
+[Download Here](https://github.com/Ramlala-Yadav-Git/BookMyHotel.com-clone/archive/refs/heads/main.zip)
 
 
 Clone the project from Command prompt or Bash.
 
 ```bash
-git clone https://github.com/Ramlala-Yadav-Git/Bookmyhotel.com-clone.git
+git clone https://github.com/Ramlala-Yadav-Git/BookMyHotel.com-clone.git
 ```
 
 Install the dependencies and devDependencies and start the server from command propmt or any other command shell.
@@ -27,7 +27,7 @@ And
 
 Run the project.  
 ```bash
-cd Bookmyhotel.com-clone
+cd BookMyHotel.com-clone
 npm install
 npm start
 ```
