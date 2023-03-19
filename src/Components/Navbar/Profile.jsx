@@ -8,7 +8,14 @@ export const Profile = () => {
     const [logout, setLogout] = useState(false)
     let userData
     if (data) {
-        userData = data
+        if(data.email){
+          userData ={
+            name :data.email,
+            imageUrl :"/profile.png"
+          }
+        }else{
+            userData = data
+        }
     }
     else {
         userData = {

@@ -57,7 +57,7 @@ export const Navbar = () => {
                         </li>
                         {
                             !user && <li className={styles.signButton}>
-                                <Link to="/login">
+                                <Link to="/register">
                                     <button>Register</button>
                                 </Link>
                             </li>}
