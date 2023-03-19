@@ -1,121 +1,234 @@
-.navbarContainer *{
+.navbarContainer * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica','Arial','sans-serif'
+    font-family: "BlinkMacSystemFont", "-apple-system", "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif'
 }
 
-.navbarContainer{
-background-color:rgb(0,53,128);
-color: white;
-padding-top: 2%;
-padding-left: 10%;
-padding-right: 5%;
-/* padding-bottom: 0.5%; */
-/* width: 100%; */
-/* border: 1px solid black; */
+.navbarContainer {
+    background-color: rgb(0, 53, 128);
+    color: white;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 5%;
+    /* padding-bottom: 0.5%; */
+    /* width: 100%; */
+    /* border: 1px solid black; */
 
 }
-.navbarUpperSection{
+
+.navMobileContainer {
+    width: 100%;
+    margin: auto;
+    background-color: rgb(0, 53, 128);
+    color: white;
+    border-radius: 10px;
+}
+
+.navMobileSection {
+    overflow: hidden;
+    background-color: rgb(0, 53, 128);
+    position: relative;
+    margin-right: 10px;
+}
+
+.navMobileSection #myLinks {
+    display: none;
+}
+
+.navMobileSection a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+.navMobileSection .icon {
+    background: rgb(0, 53, 128);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.navMobileSection .icon:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navMobileSectionAction {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+.navWebbarUpperSection {
     display: flex;
     justify-content: space-between;
     margin-right: 10%;
-  
-}
-.navbarUpperSectionItems > ul{
- display: flex;
- list-style: none;
- justify-content: space-between;
-}
-.inr{
-margin-top: 1.5%;
-font-weight: 500;
-font-size: 15px;
 
 }
-.indianFlag{
-   margin-left: 5%;  
-   margin-top: 1%;
-    
+.topNavMobileSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.indianFlag img{
-border-radius: 50%;
-width: 25px;
+.logo>a {
+    text-decoration: none;
+    color: white;
 }
-.questionIcon{
+
+.logo>a span:last-child {
+    color: rgb(7, 150, 255);
+}
+
+.navWebbarUpperSectionItems>ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.inr {
+    margin-top: 1.5%;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+.indianFlag {
+    margin-left: 5%;
+    margin-top: 1%;
+
+}
+
+.indianFlag img {
+    border-radius: 50%;
+    width: 25px;
+}
+
+.questionIcon {
     fill: white;
-   margin-left: 80%;  
-   margin-top:25%;
-   font-weight: 500;
-font-size: 15px;
+    margin-left: 80%;
+    margin-top: 25%;
+    font-weight: 500;
+    font-size: 15px;
 
 
 }
-.propertyList{
-   margin-left: 10%;  
+
+.propertyList {
+    margin-left: 10%;
 
 }
-.propertyList > button{
+
+.propertyList>button {
     width: 150px;
     border-radius: 2px;
     color: white;
     border: 1px solid white;
     padding: 5%;
-    background-color: rgb(0,53,128);
+    background-color: rgb(0, 53, 128);
     font-weight: bold;
     font-weight: 500;
     font-size: 15px;
 }
-.signButton{
+
+.signButton {
     margin-left: 2%;
-    
+
 }
-.signButton button{
+
+.signButton button {
     width: 100px;
     border-radius: 2px;
-    color: rgb(0,113,194);
-    border: 1px solid rgb(0,113,194);
+    color: rgb(0, 113, 194);
+    border: 1px solid rgb(0, 113, 194);
     padding: 8%;
     background-color: white;
     font-weight: 500;
     font-size: 15px;
     cursor: pointer;
-    
+
 }
-.navbarLowerSection{
+
+.navbarLowerSection {
     margin-top: 2%;
+    display: none;
 }
-.navbarLowerSection>ul{
+
+.navbarLowerSection>ul {
     display: flex;
     list-style: none;
 }
-.navbarLowerSection>ul>li{
-margin-right: 3%;
-font-weight: 500;
-font-size: 15px;
-display: flex;
+
+.navbarLowerSection>ul>li {
+    margin-right: 3%;
+    font-weight: 500;
+    font-size: 15px;
+    display: flex;
 }
-.navbarLowerSection>ul .text{
+
+.navbarLowerSection>ul .text {
     margin-top: 10px;
     margin-left: 5px;
 }
-
-.svgIcons{
+.navBarMobileSelection{
+    text-align: right;
+    /* margin-right: 10px; */
+}
+.svgIcons {
     color: white;
     fill: white;
-   margin-right: 5px;
-   margin-top: 10px;
-  
+    margin-right: 5px;
+    margin-top: 10px;
+
 }
-.Link{
+
+.Link {
     text-decoration: none;
     color: white;
 }
-.main{
-width: 98.7vw ;
-margin-left: -8px ;
- margin-top: -8px ;
- overflow-y: hidden;
+
+.main {
+    width: 98.7vw;
+    margin-left: -8px;
+    margin-top: -8px;
+    overflow-y: hidden;
 }
 
+@media only screen and (max-width: 900px) {
+    .navWebbarUpperSection {
+        display: none;
+    }
+    .navbarLowerSection{
+        display: none;
+    }
+    .navMobileContainer{
+        display: block;
+    }
+    .navbarLowerSection>ul{
+        flex-direction: column;
+    }
+    .navbarLowerSection>ul > li{
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+  }
+@media only screen and (min-width: 901px) {
+    .navWebbarUpperSection {
+        display: flex;
+    }
+    .navbarLowerSection{
+        display: block;
+    }
+    .navMobileContainer{
+        display: none;
+    }
+  }
