@@ -120,7 +120,7 @@ export const FilterFeature = ({ filterPrice, filterStar, filterPolicy }) => {
             <div>
                 <div>
                     <input type="radio" value="1500" onChange={handleFilterprice} name="price" />
-                    <p>₹1500 +</p>
+                    <p>£1500 +</p>
                 </div>
 
                 <p>{countAbove_1500}</p>
@@ -128,7 +128,7 @@ export const FilterFeature = ({ filterPrice, filterStar, filterPolicy }) => {
             <div>
                 <div>
                     <input type="radio" value="1000" onChange={handleFilterprice} name="price" />
-                    <p>₹500 - ₹ 1500</p>
+                    <p>£500 - £ 1500</p>
                 </div>
 
                 <p>{countAbove_1000}</p>
@@ -136,7 +136,7 @@ export const FilterFeature = ({ filterPrice, filterStar, filterPolicy }) => {
             <div>
                 <div>
                     <input type="radio" value="0" onChange={handleFilterprice} name="price" />
-                    <p>₹0 - ₹ 1000</p>
+                    <p>£0 - £ 1000</p>
                 </div>
 
                 <p>{countAbove_500}</p>

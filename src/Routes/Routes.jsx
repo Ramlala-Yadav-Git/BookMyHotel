@@ -1,5 +1,6 @@
 
 import { Switch, Route } from "react-router"
+import { EditHotel } from "../Components/EditHotelDetails/EditHotel"
 import { HotelDetails } from "../Components/HotelDetails/Components/HotelDetails"
 import Login from "../Components/Login/Login"
 import SignUp from "../Components/Login/Signup"
@@ -30,7 +31,7 @@ export const Routes = () => {
             </Route>
 
             <Route path="/edit/:id">
-                <HotelDetails />
+                <EditHotel />
             </Route>
         </Switch>
 
