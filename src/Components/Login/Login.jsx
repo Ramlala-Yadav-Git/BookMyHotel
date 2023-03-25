@@ -106,14 +106,17 @@ const Login = () => {
             className={styles.button}
             type="button"
             onClick={handleLogin}
-            defaultValue="Create account"
+            defaultValue="Login"
           />
+          <div className={styles.account}>
+            Don't have account create one <a href="/register">Here!</a>
+          </div>
         </form>
       </div>
 
       <div className={styles.line}>
         <hr className={styles.hr} />
-        <p className={styles.p}>or use one of these options</p>
+        <p className={styles.p}>or use Google</p>
         <hr className={styles.hr} />
       </div>
 
