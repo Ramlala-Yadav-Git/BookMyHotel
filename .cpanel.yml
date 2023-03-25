@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/bookmyhotel/public_html/
+    - export DEPLOYPATH=/home/bookmyhotel/repositories/BookMyHotel/public/index.html
     -/bin/cp -R * $DEPLOYPATH
