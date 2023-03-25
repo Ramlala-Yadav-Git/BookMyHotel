@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bookmyhotel/public_html/
+    - /bin/cp -R images $DEPLOYPATH
