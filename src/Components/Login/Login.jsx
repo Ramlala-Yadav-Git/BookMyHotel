@@ -31,7 +31,7 @@ const Login = () => {
       let data = JSON.parse(localStorage.getItem("login"));
       if(data.password) return;
       if (data) {
-        document.location.href = "https://booking-com.netlify.app/";
+        document.location.href = "http://bookmyhotel.live/";
         alert("You have successfully Logged In")
       }
     }, 5000)
@@ -40,7 +40,7 @@ const Login = () => {
   const handleLogin = (event)=>{
     let creadentials = JSON.parse(localStorage.getItem("login"));
     if(creadentials &&  creadentials.email == email && creadentials.password == password ){
-      document.location.href = "https://booking-com.netlify.app/";
+      document.location.href = "http://bookmyhotel.live/";
     }else{
       alert("Wrong credentail please enter try again!!")
     }

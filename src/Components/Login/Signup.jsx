@@ -34,7 +34,7 @@ const SignUp = () => {
   const handleRegister =(e)=>{
     let creadentials = {password, email};
     localStorage.setItem("login", JSON.stringify(creadentials));
-    document.location.href = "https://booking-com.netlify.app/login";
+    document.location.href = "http://bookmyhotel.live/login";
   }
 
   return (
