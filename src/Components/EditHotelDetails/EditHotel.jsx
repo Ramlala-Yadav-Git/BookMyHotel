@@ -9,7 +9,7 @@ import FooterBlue from '../Footer/FooterBlue'
 import { useParams } from 'react-router'
 import { HotelData } from '../../Utils/HotelData'
 import { useState } from 'react'
-
+import { EditHotelDetails } from './EditHotelDetails'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -32,26 +32,7 @@ export const EditHotel = () => {
             <Navbar />
             <Wrapper>
                 <Div>
-                    <TopSection />
-                    <TitleInfo type="hotel" name={`${sendData[0].name}`}
-                        address={`${sendData[0].city}`}
-                        url_1={`${sendData[0].visitUrls.url_1}`}
-                        url_2={`${sendData[0].visitUrls.url_2}`}
-                        url_3={`${sendData[0].visitUrls.url_3}`}
-                        url_5={`${sendData[0].visitUrls.url_5}`}
-                        url_6={`${sendData[0].visitUrls.url_6}`}
-                        url_7={`${sendData[0].visitUrls.url_7}`}
-                        url_8={`${sendData[0].visitUrls.url_8}`}
-                        url_9={`${sendData[0].visitUrls.url_9}`}
-                        url_10={`${sendData[0].visitUrls.url_10}`}
-                    />
-
-                    <AllIcons />
-
-                    <Availability />
-
-
-
+                 <EditHotelDetails/>
                 </Div>
             </Wrapper>
             <FooterBlue />
