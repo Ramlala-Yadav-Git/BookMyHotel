@@ -29,7 +29,7 @@ const Login = () => {
     localStorage.setItem("login", JSON.stringify(data));
     setTimeout(() => {
       let data = JSON.parse(localStorage.getItem("login"));
-      if(data.password) return;
+      if(!data.password) return;
       if (data) {
         document.location.href = "http://bookmyhotel.live/";
         alert("You have successfully Logged In")
