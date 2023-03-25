@@ -74,7 +74,7 @@ export const BoxDiv = (props)=> {
 
             <Title>{props.title}</Title>
             <Subtitle>{props.subtitle}</Subtitle>
-            <Price>Staring from ₹{props.price}</Price>
+            <Price>Staring from £{props.price}</Price>
 
             <FlexDiv>
             <Rating>{props.rating}</Rating>

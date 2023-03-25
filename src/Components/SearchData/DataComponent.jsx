@@ -130,9 +130,9 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
                 fontSize: "14px",
               }}
             >
-              ₹ {price}
+              £ {price}
             </span>
-            <span style={{ fontSize: "22px", fontWeight: "600" }}>  ₹ {discountedPrice}</span>
+            <span style={{ fontSize: "22px", fontWeight: "600" }}>  £ {discountedPrice}</span>
           </p>
           <p
             style={{
