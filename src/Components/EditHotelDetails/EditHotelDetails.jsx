@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { HotelData } from '../../Utils/HotelData'
 import { useState } from 'react'
 import styles from "./EditHotelDetails.module.css"
+import { HotelRoomsImages } from './HotelRoomsImages'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -48,7 +49,7 @@ export const EditHotelDetails = () => {
                     <input type="radio" name="bedSize" value="big" />
 
                 </div>
-
+                <HotelRoomsImages/>
             </div>
 
         </>

@@ -1,0 +1,26 @@
+.roomsImage {
+    font-family: sans-serif;
+    /* text-align: center; */
+    background-color: #f6f9fe;
+    height: 100vh;
+  }
+  .imageItem{
+    display: flex;
+    margin: 10px 0;
+  }
+  .uploadImageWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  button {
+    height: 40px;
+  }
+  .HotelImage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
