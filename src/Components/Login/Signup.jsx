@@ -3,12 +3,16 @@ import styles from "./Login.module.css";
 import GoogleLogin from "react-google-login";
 // import { GoogleLogout } from "react-google-login";
 
-const Login = () => {
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const handleChange = (e) => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleEmailChange = (e) => {
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
       setShowPassword(true);
+      setEmail(e.target.value)
     } else {
       setShowPassword(false);
     }
@@ -21,6 +25,16 @@ const Login = () => {
     // console.log(data);
     localStorage.setItem("login", JSON.stringify(data));
   };
+
+  const handlePasswordChange =(e)=>{
+    setPassword(e.target.value);
+  }
+
+  const handleRegister =(e)=>{
+    let creadentials = {password, email};
+    localStorage.setItem("login", JSON.stringify(creadentials));
+    document.location.href = "https://booking-com.netlify.app/login";
+  }
 
   return (
     <div className={styles.login}>
@@ -56,7 +70,7 @@ const Login = () => {
         <form action="">
           <label htmlFor="email">Email address</label>
           <input
-            onChange={handleChange}
+            onChange={handleEmailChange}
             className={styles.input}
             type="email"
             name="email"
@@ -75,6 +89,7 @@ const Login = () => {
               <label htmlFor="password2">Confirm Password</label>
               <input
                 className={styles.input}
+                onChange={handlePasswordChange}
                 type="password"
                 name="password2"
                 id="password2"
@@ -83,7 +98,8 @@ const Login = () => {
           ) : null}
           <input
             className={styles.button}
-            type="submit"
+            type="button"
+            onClick={handleRegister}
             value="Create account"
           />
         </form>
@@ -147,7 +163,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
 
 // <GoogleLogout
 //                   className={styles.logout}
