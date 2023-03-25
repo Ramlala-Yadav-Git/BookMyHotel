@@ -12,28 +12,33 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
         <img src={url} alt="imageofHotel" />
       </div>
       <div className={styles.datadiv}>
-        <h3 className={styles.h3}>{name}</h3>
-
-        <div>
+        <div className={styles.hotelName}>
+          <h3 className={styles.h3}>{name}</h3>
+          <a href="/edit" title="edit hotel">
+            <svg  height="24" viewBox="0 96 960 960" width="24"><path d="M209 857h40l335-336-40-40-335 336v40Zm567-393L601 290l28-29q37-38 88.5-38.5T807 259l21 21q31 29 29 67t-29 65l-52 52Zm-57 58L289 952H113V777l430-430 176 175Zm-154-21-21-20 40 40-19-20Z"/></svg>
+          </a>
+        </div>
+        <div 
+          style={{
+            display:"flex",
+            textAlign:"left"
+          }}
+        >
           <p
             style={{
               color: "#0071C2",
               textDecoration: "underline",
               cursor: "pointer",
+              display:"inline-block"
             }}
           >
             {city}
           </p>
-          <p
-            style={{
-              color: "#0071C2",
-              textDecoration: "underline",
-              cursor: "pointer",
+          <p  style={{
+             display:"inline-block"
             }}
-          >
-            {/* Show on map */}
-          </p>
-          <p>{distance} km from center</p>
+          
+          >{distance} km from center</p>
         </div>
         <h5 style={{ padding: "0", marginTop: "4px", marginBottom: "6px" }}>
           {roomSize}

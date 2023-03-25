@@ -14,17 +14,7 @@ import { useState } from 'react'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
-margin-top: 50px;
-
-&>:nth-child(1){
-    width: 20%;
-    padding: 20px;
-    height: 440px;
-}
-&>:nth-child(2){
-    width: 60%;
-}
-
+margin-top: 20px;
 `
 const Div = styled.div`
 margin:0 ;
@@ -48,7 +38,6 @@ export const HotelDetails = () => {
         <>
             <Navbar />
             <Wrapper>
-                <SearchRequest filterSearch={filterSearch} />
                 <Div>
                     <TopSection />
                     <TitleInfo type="hotel" name={`${sendData[0].name}`}
