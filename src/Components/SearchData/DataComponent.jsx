@@ -80,7 +80,7 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
         </h5>
       </div>
       <div>
-        <div style={{ display: "flex", float: "right" }}>
+        <div style={{ display: "flex", marginTop: "-35px"}}>
           <div style={{ marginRight: "3px" }}>
             <h5 style={{ padding: "0", margin: "0", marginTop: "5px", fontSize: "16px", textAlign: "right" }}>
               {view}
@@ -111,7 +111,7 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
           </div>
         </div>
 
-        <div style={{ marginTop: "75px", textAlign: "right" }}>
+        <div style={{  textAlign: "right", marginTop:"-115px" }}>
           <p
             style={{
               padding: "0",
