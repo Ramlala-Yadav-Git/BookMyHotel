@@ -1,47 +1,21 @@
 .maindiv{
-    /* border:1px solid gray; */
     box-shadow: rgba(170, 160, 160, 0.24) 0px 3px 8px;
     padding: 11px;
     border-radius: 4px;
-    /* width: 50%; */
-    display: grid;
-    grid-template-columns: 26% 50% 22%;
-    grid-gap: 1%;
-    /* width: 80%; */
     margin-bottom:20px ;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 
 }
-
-@media only screen and (max-width: 1300px) {
-    .maindiv{
-        width: 60%;
-    }
-  }
-  @media only screen and (max-width: 1100px) {
-    .maindiv{
-        width: 65%;
-    }
-  }
-  @media only screen and (max-width: 1000px) {
-    .maindiv{
-        width: 80%;
-    }
-  }
-  @media only screen and (max-width: 810px) {
-    .maindiv{
-        width: 95%;
-    }
-  }
-
-
 .maindiv > div{
-    padding: 0;
-
+    width: 100%;
+    max-height: 500px;
 }
 .imgdiv > img{
-    width: 10rem;
-    height: 12rem;
+    width: 100%;
     border-radius: 5px;
+    max-height: 300px;
 }
 .h3{
     padding: 0;
@@ -52,12 +26,8 @@
 .datadiv{
     text-align: left;
 }
-/* .datadiv1{
-    display: flex;
-    justify-content: space-between;
-} */
+
 .datadiv > div{
-    width: 70%;
     display: flex;
     justify-content: space-between;
 }
@@ -65,4 +35,12 @@
     font-size: 13px;
     padding: 0;
     margin: 0;
+}
+.hotelName{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.hotelName > h3{
+    display: inline-block;
 }

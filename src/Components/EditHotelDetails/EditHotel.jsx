@@ -1,14 +1,13 @@
 
 import styled from 'styled-components'
-import { TopSection } from './TopSection/TopSection'
-import { TitleInfo } from './TittleInfo/TittleInfo'
-import { AllIcons } from './AllIcons/AllIcons'
-import { Availability } from './Avaliablity/Availability'
-import { Navbar } from '../../Navbar/Navbar'
-import FooterBlue from '../../Footer/FooterBlue'
-import { SearchRequest } from '../../SearchPage/SearchRequest'
+import { TopSection } from '../HotelDetails/Components/TopSection/TopSection'
+import { TitleInfo } from '../HotelDetails/Components/TittleInfo/TittleInfo'
+import { AllIcons } from '../HotelDetails/Components/AllIcons/AllIcons'
+import { Availability } from '../HotelDetails/Components/Avaliablity/Availability'
+import { Navbar } from '../Navbar/Navbar'
+import FooterBlue from '../Footer/FooterBlue'
 import { useParams } from 'react-router'
-import { HotelData } from '../../../Utils/HotelData'
+import { HotelData } from '../../Utils/HotelData'
 import { useState } from 'react'
 
 const Wrapper = styled.div`
@@ -20,20 +19,14 @@ const Div = styled.div`
 margin:0 ;
 
 `
-export const HotelDetails = () => {
+export const EditHotel = () => {
     const param = useParams()
     const [, setShowData] = useState("")
 
     const sendData = HotelData.filter((el) => {
         return el.id === Number(param.id)
     })
-    const filterSearch = (search) => {
-
-        const filteredData = HotelData.filter((e) => {
-            return (e.name.toLowerCase().includes(search.toLowerCase()))
-        })
-        setShowData(filteredData)
-    }
+    
     return (
         <>
             <Navbar />

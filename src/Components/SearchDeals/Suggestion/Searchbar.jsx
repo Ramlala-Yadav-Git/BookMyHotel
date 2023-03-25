@@ -32,7 +32,9 @@ padding: 0.5%;
 color:rgb(85, 84, 84) ;
 `
 const RightSide = styled.div`
-
+&{
+display:none;
+},
 & div > p{
 font-size: 24px;
 margin-top:-7px;
