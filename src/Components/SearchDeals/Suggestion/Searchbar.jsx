@@ -3,18 +3,11 @@ import styled from "styled-components"
 import { useThrottle } from "use-throttle"
 
 const SearchBarWrapper = styled.div`
-  position: relative;
+    width:100%;
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica','Arial','sans-serif';
-
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 280px;
-    font-weight: 100;
-    color: gray;
+ 
 `
 // const IconImage = styled.img`
 /* height:20px;
@@ -30,6 +23,7 @@ font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica
 font-size: 15px;
 padding: 0.5%;
 color:rgb(85, 84, 84) ;
+width:100%;
 `
 const RightSide = styled.div`
 &{
@@ -63,10 +57,11 @@ flex:0 0 auto;
 max-height: 300px;
 overflow: auto;
 overflow-y: hidden;
-top: 52%;
+top: 43%;
 left: 12%;
 border-radius: 10px;
 width: 359px;
+max-width: 78%;
 z-index: 4;
 background-color: white;
 box-shadow: 2px 2px 2px 2px #7c787849;
@@ -159,8 +154,7 @@ export function Searchbar({ setLoading, loading, suggestions, onChange }) {
     }
     return <>
         <SearchBarWrapper onKeyUp={handleChangeActiveSuggestions}>
-            {/* <IconImage src="https://image.flaticon.com/icons/png/512/49/49116.png" alt="icon" /> */}
-            <Input onChange={handleInputChange} value={q} placeholder="Where are you going?" />
+            <Input type="search" onChange={handleInputChange} value={q} placeholder="Where are you going?" />
             <RightSide>
                 {q && <div onClick={handleClear}>
                     <p>
