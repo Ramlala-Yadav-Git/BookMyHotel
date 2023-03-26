@@ -26,10 +26,16 @@ const Login = () => {
 
   const responseGoogle = (res) => {
     let data = { ...res.profileObj, events: {} };
-    localStorage.setItem("login", JSON.stringify(data));
+    if(data.events.email){
+      localStorage.setItem("login", JSON.stringify(data));
+    }
     setTimeout(() => {
       let data = JSON.parse(localStorage.getItem("login"));
-      if(!data.password) return;
+      if(!data.password) {
+        localStorage.removeItem("login");
+        data = null;
+        return;
+      };
       if (data) {
         document.location.href = "http://bookmyhotel.live/";
         alert("You have successfully Logged In")
@@ -137,7 +143,7 @@ const Login = () => {
       </div>
       <div className={styles.line1}>
         <p className={styles.p1}>All rights reserved.</p>
-        <p className={styles.p1}>Copyright (2006-2021) – BookMyHotel.com™</p>
+        <p className={styles.p1}>Copyright - 2023 – BookMyHotel.com™</p>
       </div>
 
 
