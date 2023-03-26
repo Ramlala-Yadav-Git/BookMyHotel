@@ -41,7 +41,7 @@ export const Navbar = () => {
                 <div className={styles.navbarUpperSectionItems}>
                     <ul>
                         <li className={styles.inr}>
-                            POUND(₤)
+                            GBP(₤)
                         </li>
                         <li className={styles.indianFlag}>
                             <img src="https://e7.pngegg.com/pngimages/107/894/png-clipart-london-flag-of-the-united-kingdom-zazzle-flag-of-england-england-flag-world.png" alt="" />
