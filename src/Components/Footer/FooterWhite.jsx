@@ -64,7 +64,7 @@ const FooterWhite = () => {
 
             <h6 style={{ color: "#0071C2", fontSize: "16px", fontWeight: "700", cursor: "pointer", textAlign: "center" }}>Extranet login</h6>
             <div style={{ width: "73%", margin: "auto", textAlign: "center", fontSize: "12px" }}>Copyright © 2023 BookMyHotel.com™. All rights reserved.</div>
-            <div style={{ fontSize: "13px", padding: "15px", color: "#6B6B6B", textAlign: "center" }}>BookMyHotel.com is part of Booking Holdings Inc., the world leader in online travel and related services.</div>
+            <div style={{ fontSize: "13px", padding: "15px", color: "#6B6B6B", textAlign: "center" }}>BookMyHotel.com is an independent reservations company, the world leader in online travel and related services.</div>
             <div style={{ padding: "19px", margin: "auto", width: "55%", textAlign: "center", display: "flex", justifyContent: "space-evenly" }}>
 
                 <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_booking/27c8d1832de6a3123b6ee45b59ae2f81b0d9d0d0.png" alt="logo" />
