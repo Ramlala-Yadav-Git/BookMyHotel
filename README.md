@@ -5,7 +5,7 @@
 BookMyHotel.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of Booking Holdings Inc. (NASDAQ: BKNG), BookMyHotel.com’s mission is to make it easier for everyone to experience the world.
 
 <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="25px">Visit our live website
-https://booking-com.netlify.app
+http://bookmyhotel.live/
 
 ## Installation
 

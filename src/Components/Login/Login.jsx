@@ -26,12 +26,18 @@ const Login = () => {
 
   const responseGoogle = (res) => {
     let data = { ...res.profileObj, events: {} };
-    localStorage.setItem("login", JSON.stringify(data));
+    if(data.events.email){
+      localStorage.setItem("login", JSON.stringify(data));
+    }
     setTimeout(() => {
       let data = JSON.parse(localStorage.getItem("login"));
-      if(data.password) return;
+      if(!data.password) {
+        localStorage.removeItem("login");
+        data = null;
+        return;
+      };
       if (data) {
-        document.location.href = "https://booking-com.netlify.app/";
+        document.location.href = "http://bookmyhotel.live/";
         alert("You have successfully Logged In")
       }
     }, 5000)
@@ -40,7 +46,7 @@ const Login = () => {
   const handleLogin = (event)=>{
     let creadentials = JSON.parse(localStorage.getItem("login"));
     if(creadentials &&  creadentials.email == email && creadentials.password == password ){
-      document.location.href = "https://booking-com.netlify.app/";
+      document.location.href = "http://bookmyhotel.live/";
     }else{
       alert("Wrong credentail please enter try again!!")
     }
@@ -133,7 +139,7 @@ const Login = () => {
       </div>
       <div className={styles.line1}>
         <p className={styles.p1}>All rights reserved.</p>
-        <p className={styles.p1}>Copyright (2006-2021) – BookMyHotel.com™</p>
+        <p className={styles.p1}>Copyright - 2023 – BookMyHotel.com™</p>
       </div>
 
 

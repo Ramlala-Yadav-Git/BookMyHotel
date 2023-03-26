@@ -34,7 +34,7 @@ const SignUp = () => {
   const handleRegister =(e)=>{
     let creadentials = {password, email};
     localStorage.setItem("login", JSON.stringify(creadentials));
-    document.location.href = "https://booking-com.netlify.app/login";
+    document.location.href = "http://bookmyhotel.live/login";
   }
 
   return (
@@ -131,7 +131,7 @@ const SignUp = () => {
       </div>
       <div className={styles.line1}>
         <p className={styles.p1}>All rights reserved.</p>
-        <p className={styles.p1}>Copyright (2006-2021) – BookMyHotel.com™</p>
+        <p className={styles.p1}>Copyright - 2023 – BookMyHotel.com™</p>
       </div>
     </div>
   );

@@ -44,16 +44,6 @@ const homeData = [
         reviews: "321",
     },
 
-
-    {
-        img: "https://cf.bstatic.com/xdata/images/hotel/max500/34497879.jpg?k=d27391d1eaeb691fafed1ae7fd6cedcfa7d2634113ed446614bd2389ecb1bfc6&o=",
-        title: "The Apartments by The Slone Club",
-        subtitle: "London",
-        price: "27,310",
-        rating: "9.4",
-        ex: "wonderful",
-        reviews: "119",
-    },
     {
         img: "https://cf.bstatic.com/xdata/images/hotel/max500/39615603.jpg?k=ffa7f14b1c5235c8883662876734f832a596de617cd8380ce1025fb21bc92df9&o=",
         title: "KeizersgrachtSuite471",
