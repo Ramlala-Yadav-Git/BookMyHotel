@@ -45,11 +45,7 @@ const SignUp = () => {
             <p><span>BookMyHotel</span><span>.com</span></p>
           </Link>
         </div>
-        <img
-          className={styles.buiavatarimage}
-          src="https://q-xx.bstatic.com/backend_static/common/flags/new/48/in.png"
-          alt=""
-        ></img>
+        
       </div>
 
       <div className={styles.form}>

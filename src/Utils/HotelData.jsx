@@ -1,8 +1,8 @@
 
 export const HotelData = [
     {
-        name: "Hotel Hayden, New York",
-        city: "New York",
+        name: "The Marriott, Oxford",
+        city: "Oxford",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/234363388.webp?k=fc9546a405b6afe024b48bcbd23256de85846b3e15d9271f241274f74c2d6b15&o=",
         reviews: 1991,
         rating: "4",
@@ -32,8 +32,8 @@ export const HotelData = [
 
     },
     {
-        name: "Hotel Taj, Mumbai",
-        city: "Mumbai",
+        name: "The Hyatt, Birmingham",
+        city: "Birmingham",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
         reviews: 1991,
         rating: "3",
@@ -65,8 +65,8 @@ export const HotelData = [
 
     },
     {
-        name: " Lifeline Villas Taraangan, Delhi",
-        city: "Delhi",
+        name: "The Four Seasons, Liverpool",
+        city: "Liverpool",
         url: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/282883032.jpg?k=8c57511f94f82a2d095e5c23aa6e4eb1903b1490238f820007363a3f0944eba2&o=&hp=1",
         reviews: 1000,
         rating: "2",
@@ -98,8 +98,8 @@ export const HotelData = [
 
     },
     {
-        name: "7TH HEAVEN, Bangalore",
-        city: "Bangalore",
+        name: "The Hyatt, Edinburgh",
+        city: "Edinburgh",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/185224982.webp?k=61490ccedad06cdc76e5927de32bf4a066e97d77ad511bae0fc59bf7e8efcde1&o=",
         reviews: 191,
         rating: "1",
@@ -131,8 +131,8 @@ export const HotelData = [
 
     },
     {
-        name: "Hotel Raj Mahal, Pune",
-        city: "Pune",
+        name: "The Hilton, Glasgow",
+        city: "Glasgow",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/205408681.webp?k=bfdeb2f418112b7ad30a539e03193030612743db57d5c17b86fc60741ff08aa8&o=",
         reviews: 1001,
         rating: "2",
@@ -163,8 +163,8 @@ export const HotelData = [
 
     },
     {
-        name: "Chocolate Villa, Mumbai",
-        city: "Mumbai",
+        name: "The Marriott, Glasgow",
+        city: "Glasgow",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/19082406.webp?k=17006a7c87dc25893e47ceec1ea1abe180ddead15f7ef8cc3fc261a253da1044&o=",
         reviews: 101,
         rating: "3",
@@ -196,8 +196,8 @@ export const HotelData = [
 
     },
     {
-        name: "White Clouds Cottage, Delhi",
-        city: "Delhi",
+        name: "The Four Seasons, Liverpool",
+        city: "Liverpool",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/81497844.webp?k=1d4d14fe7266006eff847c3b09d9f5efedf97fd3d552e21f47d22ca642273a55&o=",
         reviews: 115,
         rating: "4",
@@ -228,8 +228,8 @@ export const HotelData = [
 
     },
     {
-        name: "Shetty Farms, Mumbai",
-        city: "Mumbai",
+        name: "The Hyatt, Manchester",
+        city: "Manchester",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
         reviews: 1991,
         rating: "5",
@@ -294,8 +294,8 @@ export const HotelData = [
 
     },
     {
-        name: "Luxury Goan Villa, Gurgaon",
-        city: "Gurgaon",
+        name: "the Hilton, London",
+        city: "London",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/88967722.webp?k=fe50b990016ad28b572d1dbcdd9d07ebac151e3250637019ceb45fd8e40bb063&o=",
         reviews: 20,
         rating: "2",
@@ -327,8 +327,8 @@ export const HotelData = [
 
     },
     {
-        name: "Henry Corner, Mumbai",
-        city: "Mumbai",
+        name: "The Marriott, London",
+        city: "London",
         url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
         reviews: 1991,
         rating: "5",
