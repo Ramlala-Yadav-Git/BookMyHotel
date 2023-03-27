@@ -34,7 +34,7 @@ const SignUp = () => {
   const handleRegister =(e)=>{
     let creadentials = {password, email};
     localStorage.setItem("login", JSON.stringify(creadentials));
-    document.location.href = "http://bookmyhotel.live/login";
+    document.location.href = "/";
   }
 
   return (
@@ -49,7 +49,7 @@ const SignUp = () => {
       </div>
 
       <div className={styles.form}>
-        <h2 className={styles.formheading}>Sign in or create an account</h2>
+        <h2 className={styles.formheading}>Create an account</h2>
         <form action="">
           <label htmlFor="email">Email address</label>
           <input
@@ -79,25 +79,25 @@ const SignUp = () => {
               />
             </div>
           ) : null}
-          <input
+          <button
             className={styles.button}
             type="button"
             onClick={handleRegister}
             value="Create account"
-          />
+          >Create account</button>
           <div className={styles.account}>
-            Already have account login <a href="/login">Here!</a>
+            Already have account login <Link to="/login" >Here!</Link>
           </div>
         </form>
       </div>
 
-      <div className={styles.line}>
+      {/* <div className={styles.line}>
         <hr className={styles.hr} />
         <p className={styles.p}>or use Google</p>
         <hr className={styles.hr} />
-      </div>
+      </div> */}
 
-      <div className={styles.authlogin}>
+      {/* <div className={styles.authlogin}>
         <GoogleLogin
           clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
           render={(renderProps) => (
@@ -119,7 +119,7 @@ const SignUp = () => {
           isSignedIn={true}
           cookiePolicy={"single_host_origin"}
         />
-      </div>
+      </div> */}
       <div className={styles.line1}>
         <hr />
         <p className={styles.p1}>
@@ -139,15 +139,4 @@ const SignUp = () => {
 
 export default SignUp;
 
-// <GoogleLogout
-//                   className={styles.logout}
-//                   clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
-//                   buttonText=""
-//                   onLogoutSuccess={logoutres}
-//                 >
-//                   <span>logout</span>
-//                 </GoogleLogout>
 
-// const logoutres = () => {
-//     console.log("logout");
-//   };

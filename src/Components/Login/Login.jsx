@@ -46,7 +46,7 @@ const Login = () => {
   const handleLogin = (event)=>{
     let creadentials = JSON.parse(localStorage.getItem("login"));
     if(creadentials &&  creadentials.email == email && creadentials.password == password ){
-      document.location.href = "http://bookmyhotel.live/";
+      document.location.href = "/";
     }else{
       alert("Wrong credentail please enter try again!!")
     }
@@ -63,7 +63,7 @@ const Login = () => {
       </div>
 
       <div className={styles.form}>
-        <h2 className={styles.formheading}>Sign in or create an account</h2>
+        <h2 className={styles.formheading}>Sign in </h2>
         <form action="">
           <label htmlFor="email">Email address</label>
           <input
@@ -86,19 +86,19 @@ const Login = () => {
               />
             </div>
           ) : null}
-          <input
+          <button
             className={styles.button}
             type="button"
             onClick={handleLogin}
             defaultValue="Login"
-          />
+          >Login</button>
           <div className={styles.account}>
-            Don't have account create one <a href="/register">Here!</a>
+            Don't have account create one <Link to="/register">Here!</Link>
           </div>
         </form>
       </div>
 
-      <div className={styles.line}>
+      {/* <div className={styles.line}>
         <hr className={styles.hr} />
         <p className={styles.p}>or use Google</p>
         <hr className={styles.hr} />
@@ -127,7 +127,7 @@ const Login = () => {
           cookiePolicy={"single_host_origin"}
         />
         
-      </div>
+      </div> */}
       <div className={styles.line1}>
         <hr />
         <p className={styles.p1}>
@@ -155,15 +155,18 @@ export const Logout = () => {
     console.log("logout");
   };
 
-  return <div>
-    <GoogleLogout
+  return <div> 
+    <button className={styles.logout}>
+       logout
+    </button>
+    {/* <GoogleLogout
       className={styles.logout}
       clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
       buttonText=""
       onLogoutSuccess={logoutres}
     >
       <p style={{ marginBottom: "8px", marginRight: "10px" }} className={styles.logoutText}>logout</p>
-    </GoogleLogout>
+    </GoogleLogout> */}
   </div>
 
 }

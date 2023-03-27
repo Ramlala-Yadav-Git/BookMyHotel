@@ -25,7 +25,7 @@ export const Profile = () => {
     }
     const handleLogout = () => {
         localStorage.removeItem("login")
-        document.location.href = "http://bookmyhotel.live/"
+        document.location.href = "/"
         alert("Successfully Logged Out")
     }
 
