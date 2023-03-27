@@ -3,7 +3,7 @@ export const HotelData = [
     {
         name: "The Marriott, Oxford",
         city: "Oxford",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/234363388.webp?k=fc9546a405b6afe024b48bcbd23256de85846b3e15d9271f241274f74c2d6b15&o=",
+        url: "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         reviews: 1991,
         rating: "4",
         bedSize: "2 bed",
@@ -34,7 +34,7 @@ export const HotelData = [
     {
         name: "The Hyatt, Birmingham",
         city: "Birmingham",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
+        url: "https://img.freepik.com/free-photo/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge_1258-150762.jpg?w=1060&t=st=1679937526~exp=1679938126~hmac=7042e12b2c8d9bb78214de1c8da43e3c06d07eb21f6c865a436a3f48b9b9a3f0",
         reviews: 1991,
         rating: "3",
         bedSize: "2 bed",
@@ -67,7 +67,7 @@ export const HotelData = [
     {
         name: "The Four Seasons, Liverpool",
         city: "Liverpool",
-        url: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/282883032.jpg?k=8c57511f94f82a2d095e5c23aa6e4eb1903b1490238f820007363a3f0944eba2&o=&hp=1",
+        url: "https://cdn.pixabay.com/photo/2017/03/09/06/30/pool-2128578_960_720.jpg",
         reviews: 1000,
         rating: "2",
         bedSize: "1 bed",
@@ -100,7 +100,7 @@ export const HotelData = [
     {
         name: "The Hyatt, Edinburgh",
         city: "Edinburgh",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/185224982.webp?k=61490ccedad06cdc76e5927de32bf4a066e97d77ad511bae0fc59bf7e8efcde1&o=",
+        url: "https://cdn.pixabay.com/photo/2019/12/27/09/57/dubai-4722074__340.jpg",
         reviews: 191,
         rating: "1",
         bedSize: "2 bed",
@@ -133,7 +133,7 @@ export const HotelData = [
     {
         name: "The Hilton, Glasgow",
         city: "Glasgow",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/205408681.webp?k=bfdeb2f418112b7ad30a539e03193030612743db57d5c17b86fc60741ff08aa8&o=",
+        url: "https://thumbs.dreamstime.com/b/hotel-building-10664473.jpg",
         reviews: 1001,
         rating: "2",
         bedSize: "2 bed",
@@ -165,7 +165,7 @@ export const HotelData = [
     {
         name: "The Marriott, Glasgow",
         city: "Glasgow",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/19082406.webp?k=17006a7c87dc25893e47ceec1ea1abe180ddead15f7ef8cc3fc261a253da1044&o=",
+        url: "https://thumbs.dreamstime.com/b/bellagio-hotel-night-las-vegas-13444434.jpg",
         reviews: 101,
         rating: "3",
         bedSize: "3 bed",
@@ -198,7 +198,7 @@ export const HotelData = [
     {
         name: "The Four Seasons, Liverpool",
         city: "Liverpool",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/81497844.webp?k=1d4d14fe7266006eff847c3b09d9f5efedf97fd3d552e21f47d22ca642273a55&o=",
+        url: "https://thumbs.dreamstime.com/b/hotel-negresco-nice-france-may-first-opened-facing-mediterranean-sea-famous-luxury-offers-guest-rooms-39311507.jpg",
         reviews: 115,
         rating: "4",
         bedSize: "1 bed",
@@ -230,7 +230,7 @@ export const HotelData = [
     {
         name: "The Hyatt, Manchester",
         city: "Manchester",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
+        url: "https://thumbs.dreamstime.com/b/mactan-island-beach-shangri-la-spa-resort-lapulapu-city-cebu-philippines-65149727.jpg",
         reviews: 1991,
         rating: "5",
         bedSize: "2 bed",
@@ -263,7 +263,7 @@ export const HotelData = [
     {
         name: "Desire Golf City, Jailpur",
         city: "Jaipur",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/302175409.webp?k=5897d1cd223447a7e24b9edad4abe1bc80085dde4e2c87ed641284c341d0f65e&o=",
+        url: "https://thumbs.dreamstime.com/b/hard-rock-cafe-universal-orlando-resort-florida-lake-foreground-orlando-florida-august-hard-rock-131072744.jpg",
         reviews: 178,
         rating: "1",
         bedSize: "2 bed",
@@ -296,7 +296,7 @@ export const HotelData = [
     {
         name: "the Hilton, London",
         city: "London",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/88967722.webp?k=fe50b990016ad28b572d1dbcdd9d07ebac151e3250637019ceb45fd8e40bb063&o=",
+        url: "https://thumbs.dreamstime.com/b/hotel-del-coronado-sand-14286182.jpg",
         reviews: 20,
         rating: "2",
         bedSize: "2 bed",
@@ -329,7 +329,7 @@ export const HotelData = [
     {
         name: "The Marriott, London",
         city: "London",
-        url: "https://cf.bstatic.com/xdata/images/hotel/square200/129148007.webp?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
+        url: "https://thumbs.dreamstime.com/b/restaurant-hotel-lobby-19726493.jpg",
         reviews: 1991,
         rating: "5",
         bedSize: "2 bed",
