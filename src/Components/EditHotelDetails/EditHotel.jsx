@@ -35,7 +35,7 @@ export const EditHotel = () => {
             <Navbar />
             <Wrapper>
                 <Div>
-                 <EditHotelDetails hotel={sendData[0]}/>
+                    <EditHotelDetails hotel={sendData[0]} />
                 </Div>
             </Wrapper>
             <FooterBlue />

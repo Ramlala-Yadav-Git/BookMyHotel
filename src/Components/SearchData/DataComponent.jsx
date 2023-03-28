@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 
 const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, roomSize, cancelationPolicy, cancellation, reviews, rating, breakFast, availability, availableRooms, discountedPrice }) => {
   const lab = "See Availability >";
+  const handleDelete = (id) => {
+    let confirmation = window.confirm("Are you sure to delete this hotel " + id)
+    if (confirmation) {
+
+    }
+  }
   return (
     <div className={styles.maindiv}>
       <div className={styles.imgdiv}>
@@ -14,14 +20,19 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
       <div className={styles.datadiv}>
         <div className={styles.hotelName}>
           <h3 className={styles.h3}>{name}</h3>
-          <Link to={`/edit/${id}`} title="edit hotel">
-            <svg  height="24" viewBox="0 96 960 960" width="24"><path d="M209 857h40l335-336-40-40-335 336v40Zm567-393L601 290l28-29q37-38 88.5-38.5T807 259l21 21q31 29 29 67t-29 65l-52 52Zm-57 58L289 952H113V777l430-430 176 175Zm-154-21-21-20 40 40-19-20Z"/></svg>
-          </Link>
+          <div className={styles.adminActionIcons}>
+            <Link to={`/edit/${id}`} title="edit hotel">
+              <svg height="24" fill="green" viewBox="0 96 960 960" width="24"><path d="M209 857h40l335-336-40-40-335 336v40Zm567-393L601 290l28-29q37-38 88.5-38.5T807 259l21 21q31 29 29 67t-29 65l-52 52Zm-57 58L289 952H113V777l430-430 176 175Zm-154-21-21-20 40 40-19-20Z" /></svg>
+            </Link>
+            <span title="delete hotel" onClick={() => handleDelete(id)}>
+              <svg height="24" cursor="pointer" fill="red" viewBox="0 96 960 960" width="24"><path d="M267 982q-57 0-96.5-39.5T131 846V345H68V209h268v-66h287v66h269v136h-63v501q0 57.125-39.438 96.562Q750.125 982 693 982H267Zm426-637H267v501h426V345ZM334 777h113V414H334v363Zm180 0h113V414H514v363ZM267 345v501-501Z" /></svg>
+            </span>
+          </div>
         </div>
-        <div 
+        <div
           style={{
-            display:"flex",
-            textAlign:"left"
+            display: "flex",
+            textAlign: "left"
           }}
         >
           <p
@@ -29,15 +40,15 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
               color: "#0071C2",
               textDecoration: "underline",
               cursor: "pointer",
-              display:"inline-block"
+              display: "inline-block"
             }}
           >
             {city}
           </p>
-          <p  style={{
-             display:"inline-block"
-            }}
-          
+          <p style={{
+            display: "inline-block"
+          }}
+
           >{distance} km from center</p>
         </div>
         <h5 style={{ padding: "0", marginTop: "4px", marginBottom: "6px" }}>
@@ -80,7 +91,7 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
         </h5>
       </div>
       <div>
-        <div style={{ display: "flex", marginTop: "-35px"}}>
+        <div style={{ display: "flex", marginTop: "-35px" }}>
           <div style={{ marginRight: "3px" }}>
             <h5 style={{ padding: "0", margin: "0", marginTop: "5px", fontSize: "16px", textAlign: "right" }}>
               {view}
@@ -111,7 +122,7 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
           </div>
         </div>
 
-        <div style={{  textAlign: "right", marginTop:"-115px" }}>
+        <div style={{ textAlign: "right", marginTop: "-115px" }}>
           <p
             style={{
               padding: "0",
