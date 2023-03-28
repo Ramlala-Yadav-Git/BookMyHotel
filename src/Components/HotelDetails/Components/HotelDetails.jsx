@@ -42,6 +42,7 @@ export const HotelDetails = () => {
                     <TopSection />
                     <TitleInfo type="hotel" name={`${sendData[0].name}`}
                         address={`${sendData[0].city}`}
+                        visitUrls={sendData[0].visitUrls}
                         url_1={`${sendData[0].visitUrls.url_1}`}
                         url_2={`${sendData[0].visitUrls.url_2}`}
                         url_3={`${sendData[0].visitUrls.url_3}`}

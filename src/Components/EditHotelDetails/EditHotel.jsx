@@ -8,7 +8,7 @@ import { Navbar } from '../Navbar/Navbar'
 import FooterBlue from '../Footer/FooterBlue'
 import { useParams } from 'react-router'
 import { HotelData } from '../../Utils/HotelData'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { EditHotelDetails } from './EditHotelDetails'
 const Wrapper = styled.div`
 display: flex;
@@ -26,13 +26,16 @@ export const EditHotel = () => {
     const sendData = HotelData.filter((el) => {
         return el.id === Number(param.id)
     })
-    
+    useEffect(() => {
+        console.log(param)
+        console.log(sendData)
+    }, [])
     return (
         <>
             <Navbar />
             <Wrapper>
                 <Div>
-                 <EditHotelDetails/>
+                 <EditHotelDetails hotel={sendData[0]}/>
                 </Div>
             </Wrapper>
             <FooterBlue />

@@ -296,35 +296,35 @@ export const TitleInfo = (props) => {
 
             </Cont>
             <ImageDiv>
-
-                <ShortImage style={{ gridArea: "short1" }}>
-                    <img src={`${props.url_1}`} alt="check" />
-                </ShortImage>
-                <ShortImage style={{ gridArea: "short2" }}>
-                    <img src={`${props.url_2}`} alt="check" />
-
-                </ShortImage>
-                <LargeImage style={{ gridArea: "long" }}>
-                    <img src={`${props.url_3}`} alt="check" />
-
-                </LargeImage>
-
+               {
+                props.visitUrls.map((el, index)=>{
+                    if(index < 2){
+                       return <ShortImage style={{ gridArea: `short${index+1}` }}>
+                       <img src={`${el}`} alt="check" />
+                      </ShortImage>
+                    }
+                })
+               }
+               {
+                props.visitUrls.map((el, index)=>{
+                    if(index == 3){
+                        return <LargeImage style={{ gridArea: "long" }}>
+                        <img src={`${el}`} alt="check" />
+                      </LargeImage>
+                    }
+                })
+               }
 
             </ImageDiv>
 
             <FlexDiv>
-
-                <ImageBox style={{ backgroundImage: `url(${props.url_5})` }} />
-                <ImageBox style={{ backgroundImage: `url(${props.url_6})` }} />
-                <ImageBox style={{ backgroundImage: `url(${props.url_7})` }} />
-                <ImageBox style={{ backgroundImage: `url(${props.url_8})` }} />
-                <ImageBox style={{ background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${props.img})` }}>
-                    <Text> <p>+32photos</p>
-                    </Text>
-                </ImageBox>
-
-
-
+                {
+                    props.visitUrls.map((el, index)=>{
+                        if(index >= 4){
+                            return <ImageBox style={{ backgroundImage: `url(${el})` }} />
+                        }
+                    })
+                }
 
             </FlexDiv>
 

@@ -1,23 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import ImageUploading from "react-images-uploading";
 import styles from "./HotelRoomsImages.module.css"
 
-export const HotelRoomsImages = ({multipleImages}) => {
+export const HotelRoomsImages = ({multipleImages, imageLists}) => {
   const [images, setImages] = React.useState([]);
-  const maxNumber = 8;
+  const[remove, setRemove] = React.useState(false);
+  const maxNumber = 20;
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
-    console.log(imageList, addUpdateIndex);
-    
       setImages(imageList);
+      setRemove(false);
   };
-
+  const handleRemove = ()=>{
+    setRemove(true);
+  }
+  useEffect(() => {
+}, [])
   return (
     <div className={styles.roomsImage}>
       <ImageUploading
         multiple={multipleImages}
-        value={images}
+        value={images.length <= 0 && !remove ? imageLists : images}
         onChange={onChange}
         maxNumber={maxNumber}
         dataURLKey="data_url"
@@ -39,7 +44,7 @@ export const HotelRoomsImages = ({multipleImages}) => {
                 <img src={image.data_url} alt="" width="100" />
                 <div className={styles.imageItemBtnWrapper}>
                   <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                  <button onClick={() => onImageRemove(index)}>Reset</button>
                 </div>
               </div>
             ))}
@@ -55,7 +60,7 @@ export const HotelRoomsImages = ({multipleImages}) => {
               </button> :""
               }
               &nbsp;
-              {imageList.length > 1 ? <button onClick={onImageRemoveAll}>Remove all images</button> : ""}
+              {imageList.length > 1 ? <button onClick={onImageRemoveAll}>Reset all images</button> : ""}
               </div>
             </div>
           </div>
