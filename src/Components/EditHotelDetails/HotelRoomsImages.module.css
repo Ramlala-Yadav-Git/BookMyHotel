@@ -5,8 +5,8 @@
 }
 .roomsImage {
     font-family: sans-serif;
-    width: 100%;
-    justify-content: center;
+    width: 80%;
+    margin: auto;
   }
   .imageItem{
     display: flex;
