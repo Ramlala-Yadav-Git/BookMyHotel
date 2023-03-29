@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import GoogleLogin from "react-google-login";
-import { GoogleLogout } from "react-google-login";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { LOGIN, SERVER } from "../../Config/Config";
+import axios from "axios"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const history = useHistory();
 
   const handleEmailChange = (e) => {
     let str = e.target.value;
@@ -24,32 +25,23 @@ const Login = () => {
   }
 
 
-  const responseGoogle = (res) => {
-    let data = { ...res.profileObj, events: {} };
-    if(data.events.email){
-      localStorage.setItem("login", JSON.stringify(data));
-    }
-    setTimeout(() => {
-      let data = JSON.parse(localStorage.getItem("login"));
-      if(!data.password) {
-        localStorage.removeItem("login");
-        data = null;
-        return;
-      };
-      if (data) {
-        document.location.href = "http://bookmyhotel.live/";
-        alert("You have successfully Logged In")
-      }
-    }, 5000)
-
-  };
   const handleLogin = (event)=>{
-    let creadentials = JSON.parse(localStorage.getItem("login"));
-    if(creadentials &&  creadentials.email == email && creadentials.password == password ){
-      document.location.href = "/";
-    }else{
-      alert("Wrong credentail please enter try again!!")
+    const payload ={
+      email,
+      password
     }
+    axios.post(LOGIN, payload).then((res)=>{
+      if(res.error){
+        alert(res.error);
+      }
+      else{
+        console.log(res, "loogedin");
+        localStorage.setItem("login", JSON.stringify(res.data));
+        alert("Successfully logged in !!")
+        history.push("/");
+      }
+    });
+    
   }
   return (
     <div className={styles.login}>
@@ -98,36 +90,6 @@ const Login = () => {
         </form>
       </div>
 
-      {/* <div className={styles.line}>
-        <hr className={styles.hr} />
-        <p className={styles.p}>or use Google</p>
-        <hr className={styles.hr} />
-      </div>
-
-      <div className={styles.authlogin}>
-        <GoogleLogin
-          clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
-          render={(renderProps) => (
-            <button
-              className={styles.google}
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-            >
-              <img
-                className={styles.googleimage}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC-KxlZ9aqVMbPO3Ll49gBa3Ro245LV3KdLR2w4kQO4gy_PYVGJTPv4mBaJmVRNK4WPp4&usqp=CAU"
-                alt="img"
-              />
-            </button>
-          )}
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          isSignedIn={true}
-          cookiePolicy={"single_host_origin"}
-        />
-        
-      </div> */}
       <div className={styles.line1}>
         <hr />
         <p className={styles.p1}>
@@ -159,14 +121,6 @@ export const Logout = () => {
     <button className={styles.logout}>
        logout
     </button>
-    {/* <GoogleLogout
-      className={styles.logout}
-      clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
-      buttonText=""
-      onLogoutSuccess={logoutres}
-    >
-      <p style={{ marginBottom: "8px", marginRight: "10px" }} className={styles.logoutText}>logout</p>
-    </GoogleLogout> */}
   </div>
 
 }
