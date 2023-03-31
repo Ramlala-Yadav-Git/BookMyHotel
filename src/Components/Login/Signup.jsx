@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import GoogleLogin from "react-google-login";
-import { Link } from "react-router-dom";
-// import { GoogleLogout } from "react-google-login";
+import { Link, useHistory } from "react-router-dom";
+import { REGISTER } from "../../Config/Config";
+import axios from "axios";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const history = useHistory();
   const handleEmailChange = (e) => {
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
@@ -20,21 +20,28 @@ const SignUp = () => {
   };
 
 
-  const responseGoogle = (res) => {
-    // console.log(res);
-    let data = { ...res.profileObj, events: {} };
-    // console.log(data);
-    localStorage.setItem("login", JSON.stringify(data));
-  };
 
   const handlePasswordChange =(e)=>{
     setPassword(e.target.value);
   }
 
   const handleRegister =(e)=>{
-    let creadentials = {password, email};
-    localStorage.setItem("login", JSON.stringify(creadentials));
-    document.location.href = "/";
+    const payload ={
+      email,
+      password
+    }
+    axios.post(REGISTER, payload).then((res)=>{
+      if(res.error){
+        alert(res.error);
+      }
+      else{
+        console.log(res, "loogedin");
+        localStorage.setItem("login", JSON.stringify(res.data));
+        alert("Successfully created account !!")
+        history.push("/");
+      }
+    });
+   
   }
 
   return (
@@ -90,36 +97,6 @@ const SignUp = () => {
           </div>
         </form>
       </div>
-
-      {/* <div className={styles.line}>
-        <hr className={styles.hr} />
-        <p className={styles.p}>or use Google</p>
-        <hr className={styles.hr} />
-      </div> */}
-
-      {/* <div className={styles.authlogin}>
-        <GoogleLogin
-          clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
-          render={(renderProps) => (
-            <button
-              className={styles.google}
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-            >
-              <img
-                className={styles.googleimage}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC-KxlZ9aqVMbPO3Ll49gBa3Ro245LV3KdLR2w4kQO4gy_PYVGJTPv4mBaJmVRNK4WPp4&usqp=CAU"
-                alt=""
-              />
-            </button>
-          )}
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          isSignedIn={true}
-          cookiePolicy={"single_host_origin"}
-        />
-      </div> */}
       <div className={styles.line1}>
         <hr />
         <p className={styles.p1}>

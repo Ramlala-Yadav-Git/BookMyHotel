@@ -20,6 +20,7 @@ padding-right: 5%;
     display: flex;
     justify-content: space-between;
     margin-right: 10%;
+    flex-wrap: wrap;
   
 }
 .navbarUpperSectionItems > ul{
@@ -89,6 +90,8 @@ font-size: 15px;
 .navbarLowerSection>ul{
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .navbarLowerSection>ul>li{
 margin-right: 3%;
@@ -133,4 +136,15 @@ margin-left: -8px ;
 
 .logo>a span:last-child {
     color: rgb(7, 150, 255);
+}
+.button button{
+    width: 100px;
+    border-radius: 2px;
+    color: rgb(0,113,194);
+    border: 1px solid rgb(0,113,194);
+    padding: 8%;
+    background-color: white;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
 }

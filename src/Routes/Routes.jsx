@@ -6,6 +6,7 @@ import Login from "../Components/Login/Login"
 import SignUp from "../Components/Login/Signup"
 import { SearchPage } from "../Components/SearchPage/SearchPage"
 import { Home } from "./Home"
+import { AllHotels } from "../Components/Hotels/AllHotel"
 
 export const Routes = () => {
 
@@ -28,6 +29,10 @@ export const Routes = () => {
 
             <Route path="/search/:id">
                 <HotelDetails />
+            </Route>
+
+            <Route exact path="/allhotels">
+                <AllHotels />
             </Route>
 
             <Route path="/edit/:id">

@@ -20,22 +20,39 @@ margin:0 ;
 
 `
 export const EditHotel = () => {
+    const dummyHotel = {
+        name: null,
+        city: null,
+        roomSize: null,
+        availableRooms: null,
+        price: null,
+        bedSize: null,
+        discountedPrice: null,
+        breakFast: null,
+        availability: true,
+        cancelationPolicy: null,
+        cancellation: null,
+        distance: null,
+        id: 'new',
+        rating: null,
+        reviews: null,
+        url: null,
+        view: null,
+        visitUrls: []
+    }
     const param = useParams()
     const [, setShowData] = useState("")
 
     const sendData = HotelData.filter((el) => {
         return el.id === Number(param.id)
     })
-    useEffect(() => {
-        console.log(param)
-        console.log(sendData)
-    }, [])
+
     return (
         <>
             <Navbar />
             <Wrapper>
                 <Div>
-                 <EditHotelDetails hotel={sendData[0]}/>
+                    <EditHotelDetails hotelData={param.id == 'new' ? dummyHotel : sendData[0]} />
                 </Div>
             </Wrapper>
             <FooterBlue />

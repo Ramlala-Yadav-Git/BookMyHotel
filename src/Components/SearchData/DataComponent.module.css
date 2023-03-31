@@ -44,3 +44,7 @@
 .hotelName > h3{
     display: inline-block;
 }
+.adminActionIcons{
+    display: flex;
+    gap: 10px;
+}

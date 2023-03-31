@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HotelData } from "../../Utils/HotelData";
 import FooterBlue from "../Footer/FooterBlue";
 import { Navbar } from "../Navbar/Navbar";
@@ -14,8 +14,16 @@ export const SearchPage = () => {
     const [showData, setShowData] = useState(HotelData)
     const [price, setPrice] = useState(false)
     const [star, setStar] = useState(false)
-    // const [policy, setPolicy] = useState(false)
+    const [query, setQuery] = useState("");
 
+    useEffect(()=>{
+      let q = window.location.search;
+      console.clear();
+      q = q && q.replace("?hotel=", "");
+      console.log(decodeURIComponent(q));
+      setQuery(decodeURIComponent(q));
+      filterSearch(query);
+    }, [])
 
     const filterPrice = (e) => {
 
@@ -127,12 +135,15 @@ export const SearchPage = () => {
         </div>
         <div className={styles.serachPageContainer} >
             <div className={styles.left}>
-                <SearchRequest filterSearch={filterSearch} />
+                <SearchRequest filterSearch={filterSearch} query={query}/>
                 <FilterFeature filterPrice={filterPrice} filterStar={filterStar} filterPolicy={filterPolicy} />
             </div>
 
             <div className={styles.hotelListContainer}>
-                {/* <ul className={styles.listOfHotels} > */}
+                {showData.length <= 0 && <div style={{fontWeight:"bold", textAlign:"center", marginRight:"100px"}}>
+                    No hotels found
+                 </div>
+                }
 
                 {
                     showData.map((e, i) => {

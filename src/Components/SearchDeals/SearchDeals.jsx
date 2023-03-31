@@ -299,7 +299,7 @@ export const SearchDeals = () => {
                 </div>
 
                 <div className={styles.button}>
-                    <Link to="/search">
+                    <Link to={`/search?hotel=${query}`}>
 
                         <button>Search</button>
                     </Link>

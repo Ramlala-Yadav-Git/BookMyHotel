@@ -43,15 +43,15 @@ export const HotelRoomsImages = ({multipleImages, imageLists}) => {
               <div key={index} className={styles.imageItem}>
                 <img src={image.data_url} alt="" width="100" />
                 <div className={styles.imageItemBtnWrapper}>
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Reset</button>
+                  <button type="button" onClick={() => onImageUpdate(index)}>Update</button>
+                  <button type="button" onClick={() => onImageRemove(index)}>Reset</button>
                 </div>
               </div>
             ))}
             <div>
             <div className={styles.uploadButtons}>
               {
-                multipleImages || imageList.length != 1 ? <button
+                multipleImages || imageList.length != 1 ? <button type="button"
                 style={isDragging ? { color: "red" } : null}
                 onClick={onImageUpload}
                 {...dragProps}
@@ -60,7 +60,7 @@ export const HotelRoomsImages = ({multipleImages, imageLists}) => {
               </button> :""
               }
               &nbsp;
-              {imageList.length > 1 ? <button onClick={onImageRemoveAll}>Reset all images</button> : ""}
+              {imageList.length > 1 ? <button type="button" onClick={onImageRemoveAll}>Reset all images</button> : ""}
               </div>
             </div>
           </div>
