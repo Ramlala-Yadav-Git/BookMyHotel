@@ -57,7 +57,7 @@ flex:0 0 auto;
 max-height: 300px;
 overflow: auto;
 overflow-y: hidden;
-top: 43%;
+top: 50%;
 left: 12%;
 border-radius: 10px;
 width: 359px;
@@ -79,6 +79,7 @@ box-shadow: 2px 2px 2px 2px #7c787849;
     background: #eeeaea88;
     color:#1f1e1e85;
     font-weight: 500;
+    cursor:pointer
 }
 &>div{
        height: 30px;
@@ -154,7 +155,7 @@ export function Searchbar({ setLoading, loading, suggestions, onChange }) {
     }
     return <>
         <SearchBarWrapper onKeyUp={handleChangeActiveSuggestions}>
-            <Input type="search" onChange={handleInputChange} value={q} placeholder="Where are you going?" />
+            <Input type="search" onChange={handleInputChange} value={q} placeholder="Where are you going?" id="search"/>
             <RightSide>
                 {q && <div onClick={handleClear}>
                     <p>
@@ -168,7 +169,7 @@ export function Searchbar({ setLoading, loading, suggestions, onChange }) {
         {!loading && (<SuggestionBox ref={scrollRef} active={active} limit={5} len={suggestions.length}>
             {suggestions.map((item, index) => (
 
-                <div key={index} onMouseOver={() => setActive(index + 1)}>
+                <div key={index} onMouseOver={() => setActive(index + 1)} onClick={(e)=> setQ(e.target.innerText)}>
 
                     {item}
 

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../SearchData/DataComponent.module.css";
 import { Link } from "react-router-dom";
+import { User } from "../UserData/UserData.jsx";
 
 
 
 const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, roomSize, cancelationPolicy, cancellation, reviews, rating, breakFast, availability, availableRooms, discountedPrice }) => {
+  const [user, setuser] = useState(null);
   const lab = "See Availability >";
   const handleDelete = (id) => {
     let confirmation = window.confirm("Are you sure to delete this hotel " + id)
@@ -12,6 +14,10 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
 
     }
   }
+  useEffect(() => {
+   setuser(User());
+   console.log(user);
+  }, [])
   return (
     <div className={styles.maindiv}>
       <div className={styles.imgdiv}>
@@ -20,7 +26,8 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
       <div className={styles.datadiv}>
         <div className={styles.hotelName}>
           <h3 className={styles.h3}>{name}</h3>
-          <div className={styles.adminActionIcons}>
+          {
+            user && user.role == "ADMIN" && <div className={styles.adminActionIcons}>
             <Link to={`/edit/${id}`} title="edit hotel">
               <svg height="24" fill="green" viewBox="0 96 960 960" width="24"><path d="M209 857h40l335-336-40-40-335 336v40Zm567-393L601 290l28-29q37-38 88.5-38.5T807 259l21 21q31 29 29 67t-29 65l-52 52Zm-57 58L289 952H113V777l430-430 176 175Zm-154-21-21-20 40 40-19-20Z" /></svg>
             </Link>
@@ -28,7 +35,9 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
               <svg height="24" cursor="pointer" fill="red" viewBox="0 96 960 960" width="24"><path d="M267 982q-57 0-96.5-39.5T131 846V345H68V209h268v-66h287v66h269v136h-63v501q0 57.125-39.438 96.562Q750.125 982 693 982H267Zm426-637H267v501h426V345ZM334 777h113V414H334v363Zm180 0h113V414H514v363ZM267 345v501-501Z" /></svg>
             </span>
           </div>
+          }
         </div>
+          
         <div
           style={{
             display: "flex",
@@ -111,9 +120,9 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
             style={{
               backgroundColor: "#003580",
               color: "white",
-              padding: "10px",
+              padding: "15px",
               marginLeft: "5px",
-              // width: "30px",
+              marginTop: "12px",
               fontWeight: "bold",
               borderRadius: "5px 5px 5px 5px",
             }}
