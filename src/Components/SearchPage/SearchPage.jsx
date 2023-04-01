@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react";
-import { HotelData } from "../../Utils/HotelData";
+import { HotelData, AllHotelData } from "../../Utils/HotelData";
 import FooterBlue from "../Footer/FooterBlue";
 import { Navbar } from "../Navbar/Navbar";
 import { DataComponent } from "../SearchData/DataComponent";
 import { FilterFeature } from "./FilterFeature";
 import { SearchRequest } from "./SearchRequest";
 import styles from "./SearchRequest.module.css"
-
-
+import { ProgressBar } from 'react-loader-spinner'
 
 export const SearchPage = () => {
-
-    const [showData, setShowData] = useState(HotelData)
-    const [price, setPrice] = useState(false)
-    const [star, setStar] = useState(false)
+    
+    const [loader, setLoader] = useState(false);
+    const [showData, setShowData] = useState(HotelData);
+    const [price, setPrice] = useState(false);
+    const [star, setStar] = useState(false);
     const [query, setQuery] = useState("");
+    
+ 
 
-    useEffect(()=>{
-      let q = window.location.search;
-      console.clear();
-      q = q && q.replace("?hotel=", "");
-      console.log(decodeURIComponent(q));
-      setQuery(decodeURIComponent(q));
-      filterSearch(query);
+    useEffect(() => {
+        setLoader(true);
+        let allhotels =  AllHotelData();
+        if(allhotels.result){
+          HotelData = allhotels;
+        }
+        setLoader(false);
+        let q = window.location.search;
+        console.clear();
+        q = q && q.replace("?hotel=", "");
+        console.log(decodeURIComponent(q));
+        setQuery(decodeURIComponent(q));
+        filterSearch(query);
     }, [])
 
     const filterPrice = (e) => {
@@ -58,8 +66,6 @@ export const SearchPage = () => {
         else {
             setShowData(HotelData)
         }
-        /// console.log(e.target.value, e.target.checked, e.target.name);
-
 
     }
     const filterStar = (e) => {
@@ -133,16 +139,27 @@ export const SearchPage = () => {
         <div>
             <Navbar />
         </div>
+        {loader && <div style={{display:"flex", justifyContent:"center", marginLeft:"20%"}}>
+            <ProgressBar
+                height="80"
+                width="80"
+                ariaLabel="progress-bar-loading"
+                wrapperStyle={{}}
+                wrapperClass="progress-bar-wrapper"
+                borderColor='#003580'
+                barColor='#006FBF'
+            />
+        </div>}
         <div className={styles.serachPageContainer} >
             <div className={styles.left}>
-                <SearchRequest filterSearch={filterSearch} query={query}/>
+                <SearchRequest filterSearch={filterSearch} query={query} />
                 <FilterFeature filterPrice={filterPrice} filterStar={filterStar} filterPolicy={filterPolicy} />
             </div>
 
             <div className={styles.hotelListContainer}>
-                {showData.length <= 0 && <div style={{fontWeight:"bold", textAlign:"center", marginRight:"100px"}}>
+                {showData.length <= 0 && <div style={{ fontWeight: "bold", textAlign: "center", marginRight: "100px" }}>
                     No hotels found
-                 </div>
+                </div>
                 }
 
                 {

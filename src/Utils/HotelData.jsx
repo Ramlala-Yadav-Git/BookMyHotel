@@ -1,4 +1,17 @@
-
+import { HOTELS_URL } from "../Config/Config";
+import axios  from "axios";
+export const AllHotelData = async function(){
+  try {
+    const res = await axios.get(HOTELS_URL);
+    const result = res.data;
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
 export const HotelData = [
     {
         name: "The Marriott, Oxford",
@@ -360,4 +373,6 @@ export const HotelData = [
 
     },
 ]
+
+
 
