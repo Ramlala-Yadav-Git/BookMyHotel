@@ -3,12 +3,13 @@ import styles from "./Login.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { REGISTER } from "../../Config/Config";
 import axios from "axios";
-
+import { ProgressBar } from 'react-loader-spinner'
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const history = useHistory();
+  const [loader, setLoader] = useState(false);
   const handleEmailChange = (e) => {
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
@@ -25,22 +26,25 @@ const SignUp = () => {
     setPassword(e.target.value);
   }
 
-  const handleRegister =(e)=>{
+  const handleRegister =async(e)=>{
     const payload ={
       email,
       password
     }
-    axios.post(REGISTER, payload).then((res)=>{
-      if(res.error){
-        alert(res.error);
-      }
-      else{
-        console.log(res, "loogedin");
-        localStorage.setItem("login", JSON.stringify(res.data));
-        alert("Successfully created account !!")
-        history.push("/");
-      }
-    });
+    try {
+      setLoader(true);
+      const res = await axios.post(REGISTER, payload);
+      const result = res.data;
+      localStorage.setItem("login", JSON.stringify(result));
+      setLoader(false);
+      history.push("/");
+      alert("Succesfully created account!!")
+    } catch (error) {
+      console.log(error);
+      const erroMsg = error.response.data.error.message;
+      alert(erroMsg);
+      setLoader(false);
+    }
    
   }
 
@@ -54,7 +58,17 @@ const SignUp = () => {
         </div>
         
       </div>
-
+      {loader && <div>
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor='#003580'
+          barColor='#006FBF'
+        />
+      </div>}
       <div className={styles.form}>
         <h2 className={styles.formheading}>Create an account</h2>
         <form action="">

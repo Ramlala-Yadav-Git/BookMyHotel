@@ -3,11 +3,13 @@ import styles from "./Login.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { LOGIN, SERVER } from "../../Config/Config";
 import axios from "axios"
+import { ProgressBar } from 'react-loader-spinner'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [loader, setLoader] = useState(false);
   const history = useHistory();
 
   const handleEmailChange = (e) => {
@@ -20,29 +22,32 @@ const Login = () => {
     }
   };
 
-  const handlePasswordChange =(e)=>{
+  const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   }
 
 
-  const handleLogin = (event)=>{
-    const payload ={
+  const handleLogin = async (event) => {
+    const payload = {
       email,
       password
     }
-    axios.post(LOGIN, payload).then((res)=>{
-      if(res.error){
-        alert(res.error);
-      }
-      else{
-        console.log(res, "loogedin");
-        localStorage.setItem("login", JSON.stringify(res.data));
-        alert("Successfully logged in !!")
-        history.push("/");
-      }
-    });
-    
+    try {
+      setLoader(true);
+      const res = await axios.post(LOGIN, payload);
+      const result = res.data;
+      localStorage.setItem("login", JSON.stringify(result));
+      setLoader(false);
+      history.push("/");
+      alert("Succesfully logged in")
+    } catch (error) {
+      console.log(error);
+      const erroMsg = error.response.data.error.message;
+      alert(erroMsg);
+      setLoader(false);
+    }
   }
+
   return (
     <div className={styles.login}>
       <div className={styles.nav}>
@@ -51,9 +56,19 @@ const Login = () => {
             <p><span>BookMyHotel</span><span>.com</span></p>
           </Link>
         </div>
-        
-      </div>
 
+      </div>
+      {loader && <div>
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor='#003580'
+          barColor='#006FBF'
+        />
+      </div>}
       <div className={styles.form}>
         <h2 className={styles.formheading}>Sign in </h2>
         <form action="">
@@ -117,9 +132,9 @@ export const Logout = () => {
     console.log("logout");
   };
 
-  return <div> 
+  return <div>
     <button className={styles.logout}>
-       logout
+      logout
     </button>
   </div>
 
