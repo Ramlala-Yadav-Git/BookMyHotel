@@ -54,7 +54,7 @@ export const AllHotels = () => {
                             name={e.name} city={e.city} distance={e.distance}
                             bedSize={e.bedSize}
                             facilities={e.facilities}
-                            reviews={e.review}
+                            review={e.review}
                             rating={e.rating}
                             breakFast={e.breakFast}
                             availability={e.availability}
