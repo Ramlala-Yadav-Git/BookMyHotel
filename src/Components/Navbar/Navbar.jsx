@@ -121,6 +121,16 @@ export const Navbar = () => {
                           </p>
                          </Link>
                     </Tabs>}
+                    { <Tabs onClick={() => setTabs(6)} t={6} tab={tab}>
+                    <svg  className={styles.svgIcons} fill= "white" height="24" viewBox="0 96 960 960" width="24">
+                       <path d="M874 362v482q0 53-36.5 89.5T748 970H212q-53 0-89.5-36.5T86 844V308q0-53 36.5-89.5T212 182h482l180 180Zm-126 53L641 308H212v536h536V415ZM480 804q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM252 508h360V348H252v160Zm-40-93v429-536 107Z"/>
+                        </svg>
+                          <Link to="/booking" style={{color:"white", textDecoration:"none"}}> 
+                           <p className={styles.text}>
+                               My Bookings
+                          </p>
+                         </Link>
+                    </Tabs>}
                 </ul>
             </div>
         </div>
