@@ -28,6 +28,22 @@ export const createNewHotel = async function(payload){
     return erroMsg;
   }
 }
+export const updateHotelDetails = async function(payload){
+  const user = User();
+  const headers = {
+    'accessToken': user.id,
+  }
+  try {
+    const res = await axios.post(HOTELS_URL, payload, {headers});
+    const result = res.data;
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
 
 export const getHotel = async function(id){
   const user = User();

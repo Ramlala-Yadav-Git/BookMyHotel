@@ -1,7 +1,7 @@
 
 import styled from 'styled-components'
 import { useParams } from 'react-router'
-import { HotelData, createNewHotel } from '../../Utils/HotelData'
+import { HotelData, createNewHotel, updateHotelDetails } from '../../Utils/HotelData'
 import { useState, useEffect } from 'react'
 import styles from "./EditHotelDetails.module.css"
 import { HotelRoomsImages } from './HotelRoomsImages'
@@ -24,7 +24,12 @@ export const EditHotelDetails = ({ hotelData }) => {
         newHotel.images = images;
         newHotel.facilities =[hotel.breakFast];
         setLoader(true);
-        await createNewHotel(newHotel);
+        if(param.id == "new"){
+            await createNewHotel(newHotel);
+        }else{
+            newHotel.id = param.id;
+            await updateHotelDetails(newHotel);
+        }
         setLoader(false);
     }
     const handleEdit = (event) => {
