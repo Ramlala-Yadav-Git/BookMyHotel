@@ -93,16 +93,16 @@ export const EditHotelDetails = ({ hotelData }) => {
                             </div>
                             <label htmlFor="name">City</label>
                             <input type="text" id="city" name="city" placeholder="Hotel city.." value={hotel.city} onChange={handleEdit} />
-                            <label htmlFor="availableRooms">Total Rooms</label>
-                            <input type="number" id="availableRooms" name="availableRooms" placeholder="Total rooms.." value={hotel.availableRooms} onChange={handleEdit} />
+                            <label htmlFor="rooms">Total Rooms</label>
+                            <input type="number" id="rooms" name="rooms" placeholder="Total rooms.." value={hotel.rooms} onChange={handleEdit} />
                             <label htmlFor="bedSize">Bed Type</label>
                             <select id="bedSize" name="bedSize" value={hotel.bedSize} onChange={handleEdit}>
                                 <option value="3 bed">3 bed</option>
                                 <option value="2 bed">2 bed</option>
                                 <option value="1 bed">1 bed</option>
                             </select>
-                            <label htmlFor="rentPerDay">Charge Per Night in £</label>
-                            <input type="number" id="rentPerDay" name="rentPerDay" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit} />
+                            <label htmlFor="price">Charge Per Night in £</label>
+                            <input type="number" id="price" name="price" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit} />
                             <label htmlFor="discount">Discount % </label>
                             <input type="number" id="discount" name="discount" placeholder="Discounted charge per night.." value={hotel.discount} 
                             onInput={(e)=> e.target.value > 100 ? e.target.value = 100 : e.target.value}
