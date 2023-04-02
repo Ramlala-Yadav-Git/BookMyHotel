@@ -1,10 +1,11 @@
 
 import styled from 'styled-components'
 import { useParams } from 'react-router'
-import { HotelData } from '../../Utils/HotelData'
+import { HotelData, createNewHotel } from '../../Utils/HotelData'
 import { useState, useEffect } from 'react'
 import styles from "./EditHotelDetails.module.css"
 import { HotelRoomsImages } from './HotelRoomsImages'
+import { DUMMY_HOTEL } from '../../Utils/HotelData'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -24,8 +25,8 @@ export const EditHotelDetails = ({ hotelData }) => {
 
     const handleHotelDetailsSubmission =(event)=>{
         event.preventDefault();
-        const form = event.target.form;
        console.log(hotel);
+       createNewHotel(hotel);
     }
     const handleEdit = (event)=>{
       let name = event.target.name;
@@ -35,6 +36,7 @@ export const EditHotelDetails = ({ hotelData }) => {
           ...hotel
       }
       newHotel[name] = value;
+      console.log(hotel);
       setHotel(newHotel);
     }
     useEffect(() => {
@@ -42,12 +44,12 @@ export const EditHotelDetails = ({ hotelData }) => {
         let hotelImage = {
             "data_url": hotelData.url
         }
-        let visitURLS = [];
-        hotelData.visitUrls.forEach((el) => {
-            visitURLS.push({ "data_url": el })
+        let images = [];
+        hotelData.images.forEach((el) => {
+            images.push({ "data_url": el })
         })
         setHotelImage([hotelImage]);
-        setHotelVisitURL(visitURLS);
+        setHotelVisitURL(images);
     }, [])
     return (
         <>
@@ -65,7 +67,7 @@ export const EditHotelDetails = ({ hotelData }) => {
                                 <label htmlFor="name">Hotel Name</label>
                                 <input type="text" id="name" name="name" placeholder="Hotel name.." value={hotel.name} onChange={handleEdit}/>
                             </div>
-                            <label htmlFor="lname">City</label>
+                            <label htmlFor="name">City</label>
                             <input type="text" id="city" name="city" placeholder="Hotel city.." value={hotel.city} onChange={handleEdit}/>
                             <label htmlFor="roomSize">Room size</label>
                             <select id="roomSize" name="roomSize" value={hotel.roomSize} onChange={handleEdit}>
@@ -81,8 +83,8 @@ export const EditHotelDetails = ({ hotelData }) => {
                                 <option value="2 bed">2 bed</option>
                                 <option value="1 bed">1 bed</option>
                             </select>
-                            <label htmlFor="price">Charge Per Night in £</label>
-                            <input type="number" id="price" name="price" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit}/>
+                            <label htmlFor="rentPerDay">Charge Per Night in £</label>
+                            <input type="number" id="rentPerDay" name="rentPerDay" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit}/>
                             <label htmlFor="discountedPrice">Discounted Charge Per Night in £</label>
                             <input type="number" id="discountedPrice" name="discountedPrice" placeholder="Discounted charge per night.." value={hotel.discountedPrice} onChange={handleEdit}/>
                         </div>

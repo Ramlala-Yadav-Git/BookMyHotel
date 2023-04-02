@@ -297,7 +297,7 @@ export const TitleInfo = (props) => {
             </Cont>
             <ImageDiv>
                {
-                props.visitUrls.map((el, index)=>{
+                props.images.map((el, index)=>{
                     if(index < 2){
                        return <ShortImage style={{ gridArea: `short${index+1}` }}>
                        <img src={`${el}`} alt="check" />
@@ -306,7 +306,7 @@ export const TitleInfo = (props) => {
                 })
                }
                {
-                props.visitUrls.map((el, index)=>{
+                props.images.map((el, index)=>{
                     if(index == 3){
                         return <LargeImage style={{ gridArea: "long" }}>
                         <img src={`${el}`} alt="check" />
@@ -319,7 +319,7 @@ export const TitleInfo = (props) => {
 
             <FlexDiv>
                 {
-                    props.visitUrls.map((el, index)=>{
+                    props.images.map((el, index)=>{
                         if(index >= 4){
                             return <ImageBox style={{ backgroundImage: `url(${el})` }} />
                         }

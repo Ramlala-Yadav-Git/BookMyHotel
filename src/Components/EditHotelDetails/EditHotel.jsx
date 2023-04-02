@@ -38,7 +38,7 @@ export const EditHotel = () => {
         reviews: null,
         url: null,
         view: null,
-        visitUrls: []
+        images: []
     }
     const param = useParams()
     const [, setShowData] = useState("")

@@ -1,3 +1,4 @@
+import { User } from "../Components/UserData/UserData";
 import { HOTELS_URL } from "../Config/Config";
 import axios  from "axios";
 export const AllHotelData = async function(){
@@ -11,6 +12,44 @@ export const AllHotelData = async function(){
     const erroMsg = error;
     return erroMsg;
   }
+}
+export const createNewHotel = async function(payload){
+  const user = User();
+  const headers = {
+    'accessToken': user.id,
+  }
+  payload.id = null;
+  try {
+    const res = await axios.post(HOTELS_URL, payload, {headers});
+    const result = res.data;
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
+
+export const DUMMY_HOTEL = {
+  name: null,
+  city: null,
+  roomSize: null,
+  availableRooms: null,
+  price: null,
+  bedSize: null,
+  discountedPrice: null,
+  breakFast: null,
+  availability: true,
+  cancelationPolicy: null,
+  cancellation: null,
+  distance: null,
+  id: 'new',
+  rating: null,
+  reviews: null,
+  url: null,
+  view: null,
+  images: []
 }
 export const HotelData = [
     {
@@ -31,7 +70,7 @@ export const HotelData = [
         distance: 2,
         id: 1,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/315341166.jpg?k=ed7adc6e0e083ce249876e1f472eb91a8c63068fb0932b0a6965e7b26396f1e9&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/315341182.jpg?k=0575291c1a36734bfe2a0ebf319ecda16f539cf62443deec3d36c85f7f2cbb8e&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/315341183.jpg?k=7f56daaf237d5368e86ff068ce6bb1384442c4990f3c3595233875ac44adf68b&o=&hp=1",
@@ -61,7 +100,7 @@ export const HotelData = [
         discountedPrice: 700,
         distance: 3,
         id: 2,
-        view: "Good", visitUrls: [
+        view: "Good", images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846786.jpg?k=df5946ab3c373e8d865a2a3ae5b78921ec918e321d73de195bcf908ceaf16bc8&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846776.jpg?k=0e29dc53225422dff801b4570c0ae88c044542ca4ae1d71f453af0de41ab8c21&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846606.jpg?k=732c4629b16073cc4e68806dbe72f62d390e591d6623e61f49e542c6a3e362cc&o=&hp=1",
@@ -95,7 +134,7 @@ export const HotelData = [
         distance: 3,
         id: 3,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846786.jpg?k=df5946ab3c373e8d865a2a3ae5b78921ec918e321d73de195bcf908ceaf16bc8&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846776.jpg?k=0e29dc53225422dff801b4570c0ae88c044542ca4ae1d71f453af0de41ab8c21&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258846620.jpg?k=e64a813fdd4d8b1b0236ca83965754e1e9237ccef6839cf3148a6273c56b883f&o=&hp=1",
@@ -128,7 +167,7 @@ export const HotelData = [
         distance: 1,
         id: 4,
         view: "Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/315919273.jpg?k=9b80ea40bb8d1047fbee6a659cb39f5648e4f5e40d329833cba4cb50edfd1d8c&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/315919277.jpg?k=a5a546a087bda1880883c810f33c3538ed763badbab5f330b7a6b27748d05394&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/277721334.jpg?k=26b1c1eef7b0d86d8a26fdb7b29016ebde44c769d099825a02a508fd948c652e&o=&hp=1",
@@ -161,7 +200,7 @@ export const HotelData = [
         distance: 5,
         id: 5,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/193901195.jpg?k=7aea1554d4a3aafa50a5305af7204bcb8a842a88ce38eae0ce0ab02bcf607543&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269621415.jpg?k=fbdf79b6e52ceb6b53b58e682065ca0ac8f828fd638f63dd8454596bd6f7498c&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269621396.jpg?k=f2ec8e190013b790396a740c991158130a40e83627abea4d613ba05647a57f02&o=&hp=1",
@@ -193,7 +232,7 @@ export const HotelData = [
         distance: 8,
         id: 6,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/268968154.jpg?k=f7a8068f20e1732d094e8be3843991118e467dd8cd6147270d1bc8e7ba127fee&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/268966759.jpg?k=38fadfae3c1d96284d3738f60cb925acfa355f97b7d8d831a4327327dcf80b37&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269098620.jpg?k=41c6bb289dd029a8de61c9cb4362770630b6f26c37197ed54ac5f78525f77cee&o=&hp=1",
@@ -226,7 +265,7 @@ export const HotelData = [
         distance: 4,
         id: 7,
         view: "Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/139427417.jpg?k=1f82de96b9c759d30094a108311cc3da6990882ea099a13e1ae52f2de2e37eaa&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/176695035.jpg?k=59aa17a51c85a0d69477f3350d180117becdbacde126b4b26c955c6e4992df91&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/176694817.jpg?k=1c5c3e1ba4e4dcc2d8c063f162f63318673ce03e3b861e6a38689d54b1951cb3&o=&hp=1",
@@ -258,7 +297,7 @@ export const HotelData = [
         distance: 3,
         id: 8,
         view: "Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/238912025.jpg?k=ae5dfb852fdbb43b836076e616853b40fd40fe09d29372654d08bf6421e38823&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/270117013.jpg?k=145ee85ae72157eb52e12e8fce7a0edea88a156bb27a437e5a4445a333e2341c&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/270116614.jpg?k=9024bf181566aa7cdf7318bcd0ea27e0ad0f6d56ea59e561e6d3520ea104cd30&o=&hp=1",
@@ -291,7 +330,7 @@ export const HotelData = [
         distance: 0.5,
         id: 9,
         view: "Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/262579946.jpg?k=99d37f2c6e741a7578171a1e3d56653fdbc3c0323e2278f240588c4935fddd30&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/262597729.jpg?k=b9e50c22930ebe2cb266161f02d760424ddc6452eb2aaecd6db1a60c9557e39e&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141354189.jpg?k=76fde1cb8602678881324f34d13ce88ef6e295868b37511f53ffdff1d001f5d9&o=&hp=1",
@@ -324,7 +363,7 @@ export const HotelData = [
         distance: 3,
         id: 10,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/287225572.jpg?k=32e0ab98e21eb7e2ef2d816750bad1d85a3555b1e3579a81c971961b28798533&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/287225737.jpg?k=261ca3c14254a9453393f095653a6af15f79bd06a175ce58d8fba9a09ef442a2&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/287226255.jpg?k=d369d0d39be854cd540eac042826dee0dba410f76a40c4e333b0bdaaa5b6045f&o=&hp=1",
@@ -357,7 +396,7 @@ export const HotelData = [
         distance: 3,
         id: 11,
         view: "Very Good",
-        visitUrls: [
+        images: [
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/83417839.jpg?k=5e20f2b04a65ec9f141a059ac8d028f981f8e1b76cbb7d001b8026eafbca5c72&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/134866022.jpg?k=b264df47798ca8d6dd024929fbe02ef2145a274bbc649fd29c4f0643d27d8cf4&o=&hp=1",
           "https://cf.bstatic.com/xdata/images/hotel/max1024x768/134866256.jpg?k=37b2c66ded7a4821a62ec665bba029eb5a06770cad10e342a4c606c37c1c82c9&o=&hp=1",
