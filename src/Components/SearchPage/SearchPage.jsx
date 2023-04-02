@@ -5,13 +5,13 @@ import { Navbar } from "../Navbar/Navbar";
 import { DataComponent } from "../SearchData/DataComponent";
 import { FilterFeature } from "./FilterFeature";
 import { SearchRequest } from "./SearchRequest";
-import styles from "./SearchRequest.module.css"
-import { ProgressBar } from 'react-loader-spinner'
+import styles from "./SearchRequest.module.css";
+import { ProgressBar } from 'react-loader-spinner';
 
 export const SearchPage = () => {
-    const [initialHoteldata, setInitialHoteldata] = useState(HotelData);
+    const [initialHoteldata, setInitialHoteldata] = useState([]);
     const [loader, setLoader] = useState(true);
-    const [showData, setShowData] = useState(HotelData);
+    const [showData, setShowData] = useState()
     const [price, setPrice] = useState(false);
     const [star, setStar] = useState(false);
     const [query, setQuery] = useState("");
@@ -20,9 +20,9 @@ export const SearchPage = () => {
        setLoader(true);
        let res = await AllHotelData();
         setInitialHoteldata(res.result);
+        console.log(res.result);
         setLoader(false);
         setShowData(res.result)
-        console.log(res.result, "fbhdkjsfbjksd");
         return res;
     }
    const handleHotelDelete =()=>{
@@ -35,7 +35,6 @@ export const SearchPage = () => {
         q = q && q.replace("?hotel=", "");
         console.log(decodeURIComponent(q));
         setQuery(decodeURIComponent(q));
-        filterSearch(query);
     }, [])
 
     const filterPrice = (e) => {
@@ -45,7 +44,7 @@ export const SearchPage = () => {
 
                 const filteredAbove1500 = initialHoteldata.filter((el) => {
 
-                    return (Number(el.price) > 1500)
+                    return (Number(el.rooms.price) > 1500)
                 })
                 setShowData([...filteredAbove1500])
             }
@@ -53,7 +52,7 @@ export const SearchPage = () => {
 
                 const filteredAbove1500 = initialHoteldata.filter((el) => {
 
-                    return ((Number(el.price) >= 1000) && (Number(el.price) < 1500));
+                    return ((Number(el.rooms.price) >= 1000) && (Number(el.rooms.price) < 1500));
                 })
                 setShowData([...filteredAbove1500])
             }
@@ -61,7 +60,7 @@ export const SearchPage = () => {
 
                 const filteredAbove1500 = initialHoteldata.filter((el) => {
 
-                    return (Number(el.price) <= 1000)
+                    return (Number(el.rooms.price) <= 1000)
                 })
                 setShowData([...filteredAbove1500])
             }
@@ -85,7 +84,7 @@ export const SearchPage = () => {
 
         else {
 
-            const filteredAbove1500 = HotelData.filter((el) => {
+            const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                 return (Number(el.rating) === Number(e.target.value))
             })
@@ -117,7 +116,7 @@ export const SearchPage = () => {
         else {
             if (e.target.value === "cancellation") {
 
-                const filteredAbove1500 = HotelData.filter((el) => {
+                const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                     return (el.cancellation === "Free")
                 })
@@ -125,7 +124,7 @@ export const SearchPage = () => {
             }
             if (e.target.value === "breakFast") {
 
-                const filteredAbove1500 = HotelData.filter((el) => {
+                const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                     return (el.breakFast === "Included")
                 })
@@ -135,7 +134,7 @@ export const SearchPage = () => {
     }
     const filterSearch = (search) => {
 
-        const filteredData = HotelData.filter((e) => {
+        const filteredData = initialHoteldata.filter((e) => {
             return (e.name.toLowerCase().includes(search.toLowerCase()))
         })
         setShowData(filteredData)
@@ -162,32 +161,28 @@ export const SearchPage = () => {
             </div>
 
             <div className={styles.hotelListContainer}>
-                {showData.length <= 0 && <div style={{ fontWeight: "bold", textAlign: "center", marginRight: "100px" }}>
+                {showData && showData.length <= 0 && <div style={{ fontWeight: "bold", textAlign: "center", marginRight: "100px" }}>
                     No hotels found
                 </div>
                 }
 
                 {
-                    showData.map((e, i) => {
-                        // console.log(e.url);
-
-
+                   showData && showData.map((e, i) => {
                         return <DataComponent url={e.url}
-                            key={e.id}
-                            name={e.name} city={e.city} distance={e.distance}
-                            bedSize={e.bedSize} 
-                            cancelationPolicy={e.cancelationPolicy}
-                            cancellation={e.cancellation}
-                            reviews={e.reviews}
-                            rating={e.rating}
-                            breakFast={e.breakFast}
-                            availability={e.availability}
-                            availableRooms={e.availableRooms}
-                            price={e.price}
-                            discount={(Number(e.price) - Number( e.discount) * Number(e.price)/100)}
-                            id={e.id}
-                            view={e.view}
-                            handleHotelDelete={handleHotelDelete}
+                        key={e.id}
+                        name={e.name} city={e.city} distance={e.distance}
+                        bedSize={e.bedSize}
+                        facilities={e.facilities}
+                        review={e.review}
+                        rating={e.rating}
+                        breakFast={e.breakFast}
+                        availability={e.availability}
+                        availableRooms={e.availableRooms}
+                        price={e.rooms.price}
+                        discount={(Number(e.rooms.price) - Number(e.rooms.discount) * Number(e.rooms.price) / 100)}
+                        id={e.id}
+                        view={e.view}
+                        handleHotelDelete={handleHotelDelete}
                         />
 
 
