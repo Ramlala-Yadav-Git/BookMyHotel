@@ -4,6 +4,8 @@
     background: #f0f8ffa3;
     position: fixed;
     height: 99vh;
+    top: 0px;
+    left: 0px;
     z-index: 100;
     align-items: center;
     justify-content: center;

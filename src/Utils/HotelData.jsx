@@ -79,7 +79,7 @@ export const reserveRoom = async function(payload){
 export const getAllTransactions = async function(){
   const user = User();
   try {
-    const res = await axios.post(TRANSACTION + "/book/" + user.id);
+    const res = await axios.get(TRANSACTION + "/" + user.id);
     const result = res.data;
     return result;
   } catch (error) {

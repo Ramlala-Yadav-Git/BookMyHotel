@@ -115,8 +115,8 @@ export const Availability = ({hotel}) => {
     const nowDate = new Date().toJSON();
     const [reserve, setReserve] = useState(false)
     const [user, setUser] = useState(false);
-    const [checkInDate, setCheckInDate] = useState(nowDate.substr(0,16));
-    const [checkOutDate, setCheckOutDate] = useState(nowDate.substr(0,16));
+    const [checkInDate, setCheckInDate] = useState(nowDate.substring(0,16));
+    const [checkOutDate, setCheckOutDate] = useState(nowDate.substring(0,16));
     const [loader, setLoader] = useState(false);
     const [guest, setGuest] = useState(1);
     const [rooms, setRooms] = useState(1);
