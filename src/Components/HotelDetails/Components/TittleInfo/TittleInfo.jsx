@@ -269,17 +269,6 @@ export const TitleInfo = (props) => {
                     <div>
                         <FavoriteBorderIcon style={{ color: "#3c79cf" }} />
                         <ShareIcon style={{ color: "#3c79cf", marginLeft: "10px" }} />
-                        <Reserve>
-
-                            <p onClick={handleClick}>
-                                {/* <Link to="/" style={{ color: "white", textDecoration: "none" }}> */}
-                                Reserve
-                                {/* </Link> */}
-                            </p>
-
-                        </Reserve>
-
-
                     </div>
 
                     <Tag>

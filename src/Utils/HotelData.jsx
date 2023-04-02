@@ -1,5 +1,5 @@
 import { User } from "../Components/UserData/UserData";
-import { HOTELS_URL } from "../Config/Config";
+import { HOTELS_URL, TRANSACTION } from "../Config/Config";
 import axios  from "axios";
 export const AllHotelData = async function(){
   try {
@@ -61,6 +61,33 @@ export const deleteHotel = async function(id){
   }
 }
 
+export const reserveRoom = async function(payload){
+  const user = User();
+  payload.userId = user.id;
+  const headers = {
+    'accessToken': user.id,
+  }
+  try {
+    const res = await axios.post(TRANSACTION + "/book", payload,{headers});
+    const result = res.data;
+    return result;
+  } catch (error) {
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
+export const getAllTransactions = async function(){
+  const user = User();
+  try {
+    const res = await axios.get(TRANSACTION + "/" + user.id);
+    const result = res.data;
+    return result;
+  } catch (error) {
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
+
 export const DUMMY_HOTEL = {
   name: null,
   city: null,
@@ -80,6 +107,7 @@ export const DUMMY_HOTEL = {
   view: null,
   imageList: []
 }
+
 
 export const HotelData = [
     {

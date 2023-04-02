@@ -6,7 +6,7 @@ import { deleteHotel } from "../../Utils/HotelData";
 
 
 
-const DataComponent = ({ url, id, view, price, name, city, facilities, bedSize, cancelationPolicy, cancellation, review, rating, breakFast, availability, availableRooms, discount, handleHotelDelete }) => {
+const DataComponent = ({ url, id,  price, name, city, facilities, review, rating,  availableRooms, discount, handleHotelDelete }) => {
   const [user, setuser] = useState(null);
   const lab = "See Availability >";
   const handleDelete = async (id) => {

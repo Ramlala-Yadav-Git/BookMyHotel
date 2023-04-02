@@ -23,8 +23,6 @@ export const EditHotelDetails = ({ hotelData }) => {
         newHotel.url = url;
         newHotel.images = images;
         newHotel.facilities =[hotel.breakFast];
-        console.clear();
-        console.log(newHotel);
         setLoader(true);
         await createNewHotel(newHotel);
         setLoader(false);

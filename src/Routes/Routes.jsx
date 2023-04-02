@@ -7,6 +7,7 @@ import SignUp from "../Components/Login/Signup"
 import { SearchPage } from "../Components/SearchPage/SearchPage"
 import { Home } from "./Home"
 import { AllHotels } from "../Components/Hotels/AllHotel"
+import { Booking } from "../Components/Booking/Booking"
 
 export const Routes = () => {
 
@@ -37,6 +38,10 @@ export const Routes = () => {
 
             <Route path="/edit/:id">
                 <EditHotel />
+            </Route>
+
+            <Route path="/booking">
+                <Booking />
             </Route>
         </Switch>
 

@@ -65,7 +65,7 @@ export const HotelDetails = () => {
 
                     <AllIcons />
 
-                    <Availability />
+                    <Availability hotel={hotel} />
 
 
 
