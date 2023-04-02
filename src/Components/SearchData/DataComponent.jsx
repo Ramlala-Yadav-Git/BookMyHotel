@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import styles from "../SearchData/DataComponent.module.css";
 import { Link } from "react-router-dom";
 import { User } from "../UserData/UserData.jsx";
+import { deleteHotel } from "../../Utils/HotelData";
 
 
 
-const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, roomSize, cancelationPolicy, cancellation, reviews, rating, breakFast, availability, availableRooms, discountedPrice }) => {
+const DataComponent = ({ url, id, view, price, name, city, distance, bedSize,cancelationPolicy, cancellation, reviews, rating, breakFast, availability, availableRooms, discount, handleHotelDelete }) => {
   const [user, setuser] = useState(null);
   const lab = "See Availability >";
   const handleDelete = (id) => {
     let confirmation = window.confirm("Are you sure to delete this hotel " + id)
     if (confirmation) {
-
+     deleteHotel(id);
+     handleHotelDelete();
     }
   }
   useEffect(() => {
@@ -44,25 +46,24 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
             textAlign: "left"
           }}
         >
-          <p
+          <a href={"http://maps.google.com/?q=" + city}
+           target="_blank"
             style={{
               color: "#0071C2",
               textDecoration: "underline",
               cursor: "pointer",
-              display: "inline-block"
+              display: "inline-block",
+              marginBottom:"5px"
             }}
-          >
+          > 
             {city}
-          </p>
+          </a>
           <p style={{
             display: "inline-block"
           }}
 
           >{distance} km from center</p>
         </div>
-        <h5 style={{ padding: "0", marginTop: "4px", marginBottom: "6px" }}>
-          {roomSize}
-        </h5>
         <p style={{ padding: "0", margin: "0", fontSize: "13px" }}>{bedSize}</p>
         <h5
           style={{
@@ -152,7 +153,7 @@ const DataComponent = ({ url, id, view, price, name, city, distance, bedSize, ro
             >
               £ {price}
             </span>
-            <span style={{ fontSize: "22px", fontWeight: "600" }}>  £ {discountedPrice}</span>
+            <span style={{ fontSize: "22px", fontWeight: "600" }}>  £ {discount}</span>
           </p>
           <p
             style={{

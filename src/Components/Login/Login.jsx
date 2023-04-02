@@ -58,7 +58,7 @@ const Login = () => {
         </div>
 
       </div>
-      {loader && <div>
+      {loader && <div className={styles.loader}>
         <ProgressBar
           height="80"
           width="80"

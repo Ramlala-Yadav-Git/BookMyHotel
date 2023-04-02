@@ -133,3 +133,13 @@
     background-color: #006FBF;
     margin-top: 20px;
 }
+.loader{
+        display: flex;
+    width: 100%;
+    background: #f0f8ffa3;
+    position: absolute;
+    height: 71vh;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
