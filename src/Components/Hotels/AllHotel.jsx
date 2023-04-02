@@ -28,7 +28,7 @@ export const AllHotels = () => {
                         return <DataComponent url={e.url}
                             key={e.id}
                             name={e.name} city={e.city} distance={e.distance}
-                            bedSize={e.bedSize} roomSize={e.roomSize}
+                            bedSize={e.bedSize} 
                             cancelationPolicy={e.cancelationPolicy}
                             cancellation={e.cancellation}
                             reviews={e.reviews}
@@ -37,7 +37,7 @@ export const AllHotels = () => {
                             availability={e.availability}
                             availableRooms={e.availableRooms}
                             price={e.price}
-                            discountedPrice={e.discountedPrice}
+                            discount={(Number(e.price) - Number( e.discount) * Number(e.price)/100)}
                             id={e.id}
                             view={e.view}
                         />

@@ -9,22 +9,27 @@ import styles from "./SearchRequest.module.css"
 import { ProgressBar } from 'react-loader-spinner'
 
 export const SearchPage = () => {
-    
-    const [loader, setLoader] = useState(false);
+    const [initialHoteldata, setInitialHoteldata] = useState(HotelData);
+    const [loader, setLoader] = useState(true);
     const [showData, setShowData] = useState(HotelData);
     const [price, setPrice] = useState(false);
     const [star, setStar] = useState(false);
     const [query, setQuery] = useState("");
     
- 
-
-    useEffect(() => {
-        setLoader(true);
-        let allhotels =  AllHotelData();
-        if(allhotels.result){
-          HotelData = allhotels;
-        }
+   async function allHotels() {
+       setLoader(true);
+       let res = await AllHotelData();
+        setInitialHoteldata(res.result);
         setLoader(false);
+        setShowData(res.result)
+        console.log(res.result, "fbhdkjsfbjksd");
+        return res;
+    }
+   const handleHotelDelete =()=>{
+    allHotels();
+   }
+    useEffect(() => {
+         allHotels()
         let q = window.location.search;
         console.clear();
         q = q && q.replace("?hotel=", "");
@@ -38,7 +43,7 @@ export const SearchPage = () => {
         if (e.target.name === "price") {
             if (Number(e.target.value) === 1500) {
 
-                const filteredAbove1500 = HotelData.filter((el) => {
+                const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                     return (Number(el.price) > 1500)
                 })
@@ -46,7 +51,7 @@ export const SearchPage = () => {
             }
             else if (Number(e.target.value) === 1000) {
 
-                const filteredAbove1500 = HotelData.filter((el) => {
+                const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                     return ((Number(el.price) >= 1000) && (Number(el.price) < 1500));
                 })
@@ -54,7 +59,7 @@ export const SearchPage = () => {
             }
             else if (Number(e.target.value) === 0) {
 
-                const filteredAbove1500 = HotelData.filter((el) => {
+                const filteredAbove1500 = initialHoteldata.filter((el) => {
 
                     return (Number(el.price) <= 1000)
                 })
@@ -64,7 +69,7 @@ export const SearchPage = () => {
             setPrice(!price)
         }
         else {
-            setShowData(HotelData)
+            setShowData(initialHoteldata)
         }
 
     }
@@ -139,7 +144,7 @@ export const SearchPage = () => {
         <div>
             <Navbar />
         </div>
-        {loader && <div style={{display:"flex", justifyContent:"center", marginLeft:"20%"}}>
+        {loader && <div className={styles.loader}>
             <ProgressBar
                 height="80"
                 width="80"
@@ -170,7 +175,7 @@ export const SearchPage = () => {
                         return <DataComponent url={e.url}
                             key={e.id}
                             name={e.name} city={e.city} distance={e.distance}
-                            bedSize={e.bedSize} roomSize={e.roomSize}
+                            bedSize={e.bedSize} 
                             cancelationPolicy={e.cancelationPolicy}
                             cancellation={e.cancellation}
                             reviews={e.reviews}
@@ -179,9 +184,10 @@ export const SearchPage = () => {
                             availability={e.availability}
                             availableRooms={e.availableRooms}
                             price={e.price}
-                            discountedPrice={e.discountedPrice}
+                            discount={(Number(e.price) - Number( e.discount) * Number(e.price)/100)}
                             id={e.id}
                             view={e.view}
+                            handleHotelDelete={handleHotelDelete}
                         />
 
 

@@ -1,15 +1,13 @@
 
 import styled from 'styled-components'
-import { TopSection } from '../HotelDetails/Components/TopSection/TopSection'
-import { TitleInfo } from '../HotelDetails/Components/TittleInfo/TittleInfo'
-import { AllIcons } from '../HotelDetails/Components/AllIcons/AllIcons'
-import { Availability } from '../HotelDetails/Components/Avaliablity/Availability'
 import { Navbar } from '../Navbar/Navbar'
 import FooterBlue from '../Footer/FooterBlue'
 import { useParams } from 'react-router'
-import { HotelData } from '../../Utils/HotelData'
+import { HotelData, getHotel } from '../../Utils/HotelData'
 import { useState, useEffect } from 'react'
 import { EditHotelDetails } from './EditHotelDetails'
+import styles from "./EditHotelDetails.module.css"
+import { ProgressBar } from 'react-loader-spinner'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -20,14 +18,15 @@ margin:0 ;
 
 `
 export const EditHotel = () => {
+    const [loader, setLoader] = useState(false);
+    const [hotel, setHotel] = useState();
     const dummyHotel = {
         name: null,
         city: null,
-        roomSize: null,
         availableRooms: null,
         price: null,
         bedSize: null,
-        discountedPrice: null,
+        discount: null,
         breakFast: null,
         availability: true,
         cancelationPolicy: null,
@@ -38,21 +37,39 @@ export const EditHotel = () => {
         reviews: null,
         url: null,
         view: null,
-        images: []
+        imageList: []
     }
     const param = useParams()
-    const [, setShowData] = useState("")
-
-    const sendData = HotelData.filter((el) => {
-        return el.id === Number(param.id)
-    })
-
+    async function getHotelData() {
+        if (param.id == 'new') {
+            setHotel(dummyHotel);
+        } else {
+            setLoader(true);
+            let res = await getHotel(param.id);
+            setHotel(res);
+            setLoader(false);
+        }
+    }
+    useEffect(() => {
+        getHotelData()
+    }, [])
     return (
         <>
             <Navbar />
+            {loader && <div className={styles.loader}>
+                <ProgressBar
+                    height="80"
+                    width="80"
+                    ariaLabel="progress-bar-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="progress-bar-wrapper"
+                    borderColor='#003580'
+                    barColor='#006FBF'
+                />
+            </div>}
             <Wrapper>
                 <Div>
-                    <EditHotelDetails hotelData={param.id == 'new' ? dummyHotel : sendData[0]} />
+                    {hotel && <EditHotelDetails hotelData={param.id == 'new' ? dummyHotel : hotel} />}
                 </Div>
             </Wrapper>
             <FooterBlue />

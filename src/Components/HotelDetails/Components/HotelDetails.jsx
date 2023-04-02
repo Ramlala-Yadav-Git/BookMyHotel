@@ -8,9 +8,11 @@ import { Navbar } from '../../Navbar/Navbar'
 import FooterBlue from '../../Footer/FooterBlue'
 import { SearchRequest } from '../../SearchPage/SearchRequest'
 import { useParams } from 'react-router'
-import { HotelData } from '../../../Utils/HotelData'
+import { HotelData, getHotel } from '../../../Utils/HotelData'
 import { useState } from 'react'
-
+import { ProgressBar } from 'react-loader-spinner'
+import styles from "./HotelDetails.module.css"
+import { useEffect } from 'react'
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -22,27 +24,43 @@ margin:0 ;
 `
 export const HotelDetails = () => {
     const param = useParams()
+    const [loader, setLoader] = useState(false);
     const [, setShowData] = useState("")
-
+    const [hotel, setHotel] = useState(HotelData[0]);
     const sendData = HotelData.filter((el) => {
         return el.id === Number(param.id)
     })
-    const filterSearch = (search) => {
-
-        const filteredData = HotelData.filter((e) => {
-            return (e.name.toLowerCase().includes(search.toLowerCase()))
-        })
-        setShowData(filteredData)
+   async function getHotelData(){
+     setLoader(true);
+     let res = await getHotel(param.id);
+     console.clear();
+     console.log(res);
+     setHotel(res);
+     setLoader(false);
     }
+    useEffect(()=>{
+        getHotelData()
+    },[])
     return (
         <>
             <Navbar />
+            {loader && <div className={styles.loader}>
+                <ProgressBar
+                    height="80"
+                    width="80"
+                    ariaLabel="progress-bar-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="progress-bar-wrapper"
+                    borderColor='#003580'
+                    barColor='#006FBF'
+                />
+            </div>}
             <Wrapper>
                 <Div>
                     <TopSection />
-                    <TitleInfo type="hotel" name={`${sendData[0].name}`}
-                        address={`${sendData[0].city}`}
-                        images={sendData[0].images}
+                    <TitleInfo type="hotel" name={`${hotel.name}`}
+                        address={`${hotel.city}`}
+                        images={hotel.imageList}
                     />
 
                     <AllIcons />
