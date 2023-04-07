@@ -1,5 +1,5 @@
 export const  TEST = "http://localhost:3002/app/";
-export const  PROD = "https://bookmyhotel-iwfi.onrender.com/app/";
+export const  PROD = "https://bookmyhotel-dx4i.onrender.com/";
 
 const CURRENT_SERVER = TEST;
 
