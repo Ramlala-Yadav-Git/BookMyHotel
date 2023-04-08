@@ -65,7 +65,7 @@ export const Reports = () => {
         }
         <div style={{maxWidth:"80%", margin:"auto", marginTop:"10px"}}>
         {
-            reports.map((el)=>{
+            reports &&  reports.map((el)=>{
                 let checkinDate = el.startDate.substring(0,16);
                 let checkOutDate = el.endDate.substring(0,16);
                 return  <BookingDetails 
