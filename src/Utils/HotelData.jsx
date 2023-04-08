@@ -16,7 +16,10 @@ export const createNewHotel = async function(payload){
   const headers = {
     'accessToken': user.id,
   }
-  payload.id = null;
+  if(payload.id == 'new'){
+    payload.id = null;
+  }
+  
   try {
     const res = await axios.post(HOTELS_URL, payload, {headers});
     const result = res.data;
