@@ -8,3 +8,4 @@ export const REGISTER = CURRENT_SERVER + "user/";
 export const HOTELS_URL = CURRENT_SERVER + "hotels/";
 export const IMAGE_UPLOAD = CURRENT_SERVER + "file-management/";
 export const TRANSACTION = CURRENT_SERVER + "transactions/";
+export const REPORTS = CURRENT_SERVER + "transactions/reports/";

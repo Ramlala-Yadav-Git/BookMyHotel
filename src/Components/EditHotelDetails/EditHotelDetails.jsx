@@ -30,7 +30,6 @@ export const EditHotelDetails = ({ hotelData }) => {
          f.push(name);
      }else{
         let newF = [];
-        console.log(f);
         for(let i=0; i< f.length; i++){
             let fl = f[i];
             if(fl != name){

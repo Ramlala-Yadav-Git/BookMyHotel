@@ -1,5 +1,5 @@
 import { User } from "../Components/UserData/UserData";
-import { HOTELS_URL, TRANSACTION } from "../Config/Config";
+import { HOTELS_URL, REPORTS, TRANSACTION } from "../Config/Config";
 import axios  from "axios";
 export const AllHotelData = async function(){
   try {
@@ -23,7 +23,6 @@ export const createNewHotel = async function(payload){
   try {
     const res = await axios.post(HOTELS_URL, payload, {headers});
     const result = res.data;
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -90,6 +89,23 @@ export const getAllTransactions = async function(){
     return erroMsg;
   }
 }
+export const getReportsForTheDay = async function(payload){
+  const user = User();
+  payload.userId = user.id;
+  console.log(payload);
+  try {
+    const res = await axios.post(REPORTS, payload);
+    let result = res.data;
+    console.clear();
+    result = result.result.filter((el)=>{
+      return el.startDate.includes(payload.date);
+    })
+    return result;
+  } catch (error) {
+    const erroMsg = error;
+    return erroMsg;
+  }
+}
 
 export const DUMMY_HOTEL = {
   name: null,
@@ -108,7 +124,7 @@ export const DUMMY_HOTEL = {
   reviews: null,
   url: null,
   view: null,
-  imageList: []
+  imageList: [],
 }
 
 

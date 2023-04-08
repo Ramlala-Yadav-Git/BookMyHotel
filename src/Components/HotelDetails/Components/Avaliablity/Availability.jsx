@@ -158,7 +158,6 @@ export const Availability = ({hotel}) => {
             }else{
                 alert("Something went wrong please try again!!")
             }
-            console.log(res);
         }
     }
   const handleCheckInDateChange = (e)=>{

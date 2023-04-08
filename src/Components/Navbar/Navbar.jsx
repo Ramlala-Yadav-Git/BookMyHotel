@@ -121,7 +121,15 @@ export const Navbar = () => {
                           </p>
                          </Link>
                     </Tabs>}
-                    { <Tabs onClick={() => setTabs(6)} t={6} tab={tab}>
+                    {user && user.role == "ADMIN" && <Tabs onClick={() => setTabs(6)} t={6} tab={tab}>
+                    <svg  className={styles.svgIcons} fill= "white" height="24" viewBox="0 96 960 960" width="24"><path d="M320 576v-80h320v80H320Zm0-160v-80h320v80H320Zm-68 217h268q34.438 0 64.125 14.844Q613.812 662.688 634 690l74 96V268H252v365Zm0 251h372l-89-117q-2.727-3.765-6.591-5.882Q524.545 759 520 759H252v125Zm456 126H252q-53 0-89.5-36.5T126 884V268q0-53 36.5-89.5T252 142h456q53 0 89.5 36.5T834 268v616q0 53-36.5 89.5T708 1010ZM252 884V268v616Zm0-125V633v126Z"/></svg>
+                          <Link to="/reports" style={{color:"white", textDecoration:"none"}}> 
+                           <p className={styles.text}>
+                               Reports
+                          </p>
+                         </Link>
+                    </Tabs>}
+                    { <Tabs onClick={() => setTabs(7)} t={7} tab={tab}>
                     <svg  className={styles.svgIcons} fill= "white" height="24" viewBox="0 96 960 960" width="24">
                        <path d="M874 362v482q0 53-36.5 89.5T748 970H212q-53 0-89.5-36.5T86 844V308q0-53 36.5-89.5T212 182h482l180 180Zm-126 53L641 308H212v536h536V415ZM480 804q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM252 508h360V348H252v160Zm-40-93v429-536 107Z"/>
                         </svg>

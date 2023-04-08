@@ -16,7 +16,6 @@ export const Booking = () => {
         let res = await getAllTransactions();
         setTransactions(res.result);
         setLoader(false);
-        console.log(res);
     }
     useEffect(()=>{
       getTransactions();
