@@ -1,7 +1,7 @@
 export const  TEST = "http://localhost:3002/app/";
 export const  PROD = "https://bookmyhotel-dx4i.onrender.com/app/";
 
-const CURRENT_SERVER = TEST;
+const CURRENT_SERVER = PROD;
 
 export const LOGIN = CURRENT_SERVER + "user/login/";
 export const REGISTER = CURRENT_SERVER + "user/";

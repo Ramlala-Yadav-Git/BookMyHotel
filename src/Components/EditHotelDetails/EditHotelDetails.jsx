@@ -7,6 +7,7 @@ import styles from "./EditHotelDetails.module.css"
 import { HotelRoomsImages } from './HotelRoomsImages'
 import { DUMMY_HOTEL } from '../../Utils/HotelData'
 import { ProgressBar } from 'react-loader-spinner'
+import { useHistory } from 'react-router-dom'
 
 export const EditHotelDetails = ({ hotelData }) => {
     const param = useParams();
@@ -17,7 +18,8 @@ export const EditHotelDetails = ({ hotelData }) => {
     const [images, setImages] = useState(hotelData?.imageList);
     const [url, setURL] = useState(hotelData?.url);
     const [loader, setLoader] = useState(false);
-    
+    const history = useHistory();
+
     function hadleFacilities(event, status){
      let f = [...facilities];
      let name= event.target.name;
@@ -45,10 +47,13 @@ export const EditHotelDetails = ({ hotelData }) => {
         let newHotel = { ...hotel };
         newHotel.url = url;
         newHotel.images = images;
+        newHotel.imageList = images;
         newHotel.facilities = facilities;
         setLoader(true);
         await createNewHotel(newHotel);
         setLoader(false);
+        history.push("/allhotels");
+
     }
     const handleEdit = (event) => {
         let name = event.target.name;

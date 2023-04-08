@@ -41,6 +41,7 @@ export const EditHotel = () => {
         reviews: null,
         url: null,
         view: null,
+        images:[],
         imageList: []
     }
     const param = useParams()
@@ -63,7 +64,6 @@ export const EditHotel = () => {
             }
             setHotel(res);
             setLoader(false);
-            history.push("allhotels");
         }
     }
     useEffect(() => {
