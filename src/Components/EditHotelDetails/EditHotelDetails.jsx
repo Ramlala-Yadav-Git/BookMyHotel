@@ -13,16 +13,39 @@ export const EditHotelDetails = ({ hotelData }) => {
     const [hotelImage, setHotelImage] = useState([]);
     const [hotelVisitURL, setHotelVisitURL] = useState([]);
     const [hotel, setHotel] = useState(hotelData);
+    const [facilities, setFacilities] = useState([]);
     const [images, setImages] = useState(hotelData?.imageList);
     const [url, setURL] = useState(hotelData?.url);
     const [loader, setLoader] = useState(false);
-
+    
+    function hadleFacilities(event, status){
+     let f = [...facilities];
+     let name= event.target.name;
+     let newHotel = {...hotel};
+     newHotel[name] = status;
+     setHotel(newHotel);
+     if(status && !f.includes(name)){
+         f.push(name);
+     }else{
+        let newF = [];
+        console.log(f);
+        for(let i=0; i< f.length; i++){
+            let fl = f[i];
+            if(fl != name){
+                newF.push(fl[i]);
+            }
+        }
+        f = [...newF];
+     }
+     setFacilities(f);
+     
+    }
     const handleHotelDetailsSubmission = async (event) => {
         event.preventDefault();
         let newHotel = { ...hotel };
         newHotel.url = url;
         newHotel.images = images;
-        newHotel.facilities =[hotel.breakFast];
+        newHotel.facilities = facilities;
         setLoader(true);
         await createNewHotel(newHotel);
         setLoader(false);
@@ -30,7 +53,6 @@ export const EditHotelDetails = ({ hotelData }) => {
     const handleEdit = (event) => {
         let name = event.target.name;
         let value = event.target.value;
-
         let newHotel = {
             ...hotel
         }
@@ -100,20 +122,47 @@ export const EditHotelDetails = ({ hotelData }) => {
                                 <option value="1 bed">1 bed</option>
                             </select>
                             <label htmlFor="price">Charge Per Night in £</label>
-                            <input type="number" id="price" name="price" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit} />
+                            <input type="text" id="price" name="price" placeholder="Charge per night.." value={hotel.price} onChange={handleEdit} />
                             <label htmlFor="discount">Discount % </label>
-                            <input type="number" id="discount" name="discount" placeholder="Discounted charge per night.." value={hotel.discount} 
+                            <input type="text" id="discount" name="discount" placeholder="Discounted charge per night.." value={hotel.discount} 
                             onInput={(e)=> e.target.value > 100 ? e.target.value = 100 : e.target.value}
                             onChange={handleEdit} max={100}/>
                         </div>
-                        <h5>Break fast included?</h5>
+                        <h5>Swimming Pool?</h5>
                         <div className={styles.inputGroup}>
-                            <input id="breakFastIncluded1" name="breakFast" type="radio" value={hotel.breakFast} onChange={handleEdit} />
-                            <label htmlFor="breakFastIncluded1">Yes</label>
+                            <input id="SWIMMING_POOL1" name="SWIMMING_POOL" type="radio" checked={hotel.SWIMMING_POOL}  onChange={(e)=>hadleFacilities(e, true)} />
+                            <label htmlFor="SWIMMING_POOL1">Yes</label>
                         </div>
                         <div className={styles.inputGroup}>
-                            <input id="breakFastIncluded2" name="breakFast" type="radio" value={hotel.breakFast} onChange={handleEdit} />
-                            <label htmlFor="breakFastIncluded2">No</label>
+                            <input id="SWIMMING_POOL2" name="SWIMMING_POOL" type="radio" checked={!hotel.SWIMMING_POOL} onChange={(e)=>hadleFacilities(e, false)} />
+                            <label htmlFor="SWIMMING_POOL2">No</label>
+                        </div>
+                        <h5>WIFI?</h5>
+                        <div className={styles.inputGroup}>
+                            <input id="WIFI1" name="WIFI" type="radio" checked={hotel.WIFI} onChange={(e)=>hadleFacilities(e, true)} />
+                            <label htmlFor="WIFI1">Yes</label>
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <input id="WIFI2" name="WIFI" type="radio" checked={!hotel.WIFI} onChange={(e)=>hadleFacilities(e, false)} />
+                            <label htmlFor="WIFI2">No</label>
+                        </div>
+                        <h5>CANCELLATION FREE?</h5>
+                        <div className={styles.inputGroup}>
+                            <input id="CANCELLATION1" name="CANCELLATION" type="radio" checked={hotel.CANCELLATION} onChange={(e)=>hadleFacilities(e, true)} />
+                            <label htmlFor="CANCELLATION1">Yes</label>
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <input id="CANCELLATION2" name="CANCELLATION" type="radio" checked={!hotel.CANCELLATION} onChange={(e)=>hadleFacilities(e, false)} />
+                            <label htmlFor="CANCELLATION2">No</label>
+                        </div>
+                        <h5>Break fast included?</h5>
+                        <div className={styles.inputGroup}>
+                            <input id="BREAKFAST1" name="BREAKFAST" type="radio" checked={hotel.BREAKFAST} onChange={(e)=>hadleFacilities(e, true)} />
+                            <label htmlFor="BREAKFAST1">Yes</label>
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <input id="BREAKFAST2" name="BREAKFAST" type="radio" checked={!hotel.BREAKFAST} onChange={(e)=>hadleFacilities(e, false)} />
+                            <label htmlFor="BREAKFAST2">No</label>
                         </div>
                     </div>
 
