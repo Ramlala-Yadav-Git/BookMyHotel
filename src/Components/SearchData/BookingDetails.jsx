@@ -4,7 +4,7 @@ import { User } from "../UserData/UserData.jsx";
 
 
 
-export const BookingDetails = ({ hotelImage, hotelName, hotelCity, checkinDate, checkoutDate}) => {
+export const BookingDetails = ({ hotelImage, hotelName, hotelCity, checkinDate, checkoutDate, price}) => {
   const [user, setuser] = useState(null);
   
   useEffect(() => {
@@ -52,11 +52,14 @@ export const BookingDetails = ({ hotelImage, hotelName, hotelCity, checkinDate, 
                 marginBottom: "0",
               }}
             >
+             Charge(₤) - <span  style={{color:"green", fontWeight:"bold"
+              }}>{price}</span> <br />
+
               Check-in - <span  style={{color:"green", fontWeight:"bold"
-              }}>{checkinDate}</span> <br />
+              }}>{checkinDate.replace("T", " ")}</span> <br />
              
              Check-out - <span style={{color:"green", fontWeight:"bold"
-              }}> {checkoutDate}</span>
+              }}> {checkoutDate.replace("T", " ")}</span>
             </p>
         </div>
       </div>

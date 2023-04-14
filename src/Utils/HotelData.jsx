@@ -48,7 +48,7 @@ export const updateHotelDetails = async function(payload){
 export const getHotel = async function(id){
   const user = User();
   const headers = {
-    'accessToken': user.id,
+    'accessToken': user,
   }
   try {
     const res = await axios.get(HOTELS_URL + id, {headers});
