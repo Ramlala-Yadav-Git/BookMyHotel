@@ -66,7 +66,9 @@ export const Reports = () => {
                 </div>
             </div>
             <div className={styles.button}>
-                <button onClick={() => getReports(startDate)}>Search</button>
+                <div style={{marginLeft:'50px'}}>
+                   <button onClick={() => getReports(startDate)}>Search</button>
+                </div>
             </div>
             <div>
                 <div className={styles.total}>
