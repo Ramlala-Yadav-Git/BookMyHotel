@@ -1,6 +1,7 @@
 {
   "name": "prototypes",
   "version": "0.1.0",
+  "homepage":"https://bookmyhotel.live",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",

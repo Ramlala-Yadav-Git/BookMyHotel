@@ -138,8 +138,10 @@ export const Availability = ({hotel}) => {
         var Difference_In_Time = date2.getTime() - date1.getTime();
         var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
         if(!user){
-            alert("Please login first");
-            history.push("/login");
+          let confirmation =  window.confirm("Please login first");
+          if(confirmation){
+              history.push("/login");
+          }
         }
         let roomAvailable = hotel.rooms.filter((room)=> room.status  == "AVAILABLE");
         if(roomAvailable.length <= 0){

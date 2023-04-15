@@ -48,6 +48,7 @@ export const Booking = () => {
                 return  <BookingDetails 
                 checkinDate={checkinDate} checkoutDate={checkOutDate}
                 hotelName={el.hotelDetails.name} hotelImage={el.hotelDetails.url}
+                price={el.roomDetails.price}
                 hotelCity={el.hotelDetails.city}/> 
             })
         }
