@@ -164,6 +164,9 @@ export const Availability = ({hotel}) => {
     }
   const handleCheckInDateChange = (e)=>{
   setCheckInDate(e.target.value);
+  if (checkOutDate < checkInDate) {
+      setCheckOutDate(e.target.value);
+  }
   }
   const handleCheckOutDateChange = (e)=>{
   setCheckOutDate(e.target.value);
@@ -197,14 +200,18 @@ export const Availability = ({hotel}) => {
                     <DataDiv>
                         <p>Check-in date</p>
                         <h1>{checkInDate.replace("T", " ")}</h1>
-                        <input type="datetime-local" value={checkInDate} onChange={handleCheckInDateChange}/>
+                        <input type="datetime-local" 
+                        min={new Date().toJSON().substring(0,16)}
+                        value={checkInDate} onChange={handleCheckInDateChange}/>
                         <Last>From 2:00 PM</Last>
 
                     </DataDiv>
                     <DataDiv>
                         <p>Check-out date</p>
                         <h1>{checkOutDate.replace("T", " ")}</h1>
-                        <input type="datetime-local" onChange={handleCheckOutDateChange} value={checkOutDate}/>
+                        <input type="datetime-local" onChange={handleCheckOutDateChange}
+                        min={checkInDate}
+                        value={checkOutDate}/>
                         <Last>2-week stay</Last>
                     </DataDiv>
                 </div>
